@@ -1,2 +1,2 @@
 #!/bin/bash
-sed 's;bin\/shell;\n;g' | grep " ${1}:/u" -i | wc -l
+sed 's;bin\/shell;\n;g' | grep " ${1}" -i | wc -l
