@@ -14,4 +14,5 @@ int my_print_alpha(void)
     for (i = 97; i <= 122; i++) {
         my_putchar(i);
     }
+    return 0;
 }

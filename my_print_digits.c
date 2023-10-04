@@ -14,4 +14,5 @@ int my_print_digits(void)
     for (i = 48; i <= 57; i++) {
         my_putchar(i);
     }
+    return 0;
 }

@@ -14,4 +14,5 @@ int my_print_revalpha(void)
     for (i = 122; i >= 97; i--) {
         my_putchar(i);
     }
+    return 0;
 }
