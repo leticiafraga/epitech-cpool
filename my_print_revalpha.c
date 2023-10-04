@@ -2,18 +2,14 @@
 ** EPITECH PROJECT, 2023
 ** MY_PRINT_REVAPLHA
 ** File description:
-** Function that, beginning with z, displays the lowercase alphabet in descending order, on a single line
+** Function that, beginning with z, displays the lowercase alphabet
+** in descending order, on a single line
 */
-
-int my_print_revalpha ( void )
+int my_print_revalpha(void)
 {
     int i;
-    for (i = 122; i >= 97; i--)
-    {
+
+    for (i = 122; i >= 97; i--) {
         my_putchar(i);
     }
-}
-
-int main(){
-    my_print_revalpha();
 }
