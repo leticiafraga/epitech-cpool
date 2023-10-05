@@ -14,7 +14,8 @@ int validate(char c, int *neg, char *nbr, int *len)
     return 0;
 }
 
-int transform(char *nbr, int len, int neg) {
+int transform(char *nbr, int len, int neg)
+{
     long int result = 0;
 
     if (neg == 1) {
@@ -32,12 +33,10 @@ int transform(char *nbr, int len, int neg) {
 
 int getdigits(char const *str, char *nbr)
 {
-    int i = 0;
     char c;
     int len = 0;
     int neg = 0;
     int found = 0;
-    int end = 0;
 
     do {
         c = str[i];
@@ -46,8 +45,6 @@ int getdigits(char const *str, char *nbr)
         }
         if (validate(c, &neg, nbr, &len)) {
             found = 1;
-        } else if (found == 1 && end == 0) {
-            break;
         }
         i ++;
     } while (c != '\0');
@@ -62,6 +59,6 @@ int my_getnbr(char const *str)
     int result = 0;
     char nbr[10];
 
-    result = getdigits(str, nbr);
+    result = getdigits(str, nbr, i);
     return result;
 }
