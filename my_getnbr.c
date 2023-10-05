@@ -4,7 +4,8 @@
 ** File description:
 ** Returns a number, sent to the function as a string
 */
-int getdigits(char const *str, char *nbr) {
+int getdigits(char const *str, char *nbr)
+{
     int i = 0;
     char c;
     int len = 0;
@@ -12,11 +13,11 @@ int getdigits(char const *str, char *nbr) {
 
     do {
         c = str[i];
-        if (c >= '0' && c <= '9'|| (c == '-' && neg == 0)) {
+        if (c >= '0' && c <= '9' || (c == '-' && neg == 0)) {
             nbr[len] = c;
             len += 1;
             if (c == '-') {
-		neg = 1;
+                neg = 1;
             }
 	}
         i ++;
@@ -34,7 +35,7 @@ int my_getnbr(char const *str)
     long int result = 0;
     int neg = 0;
 
-    len = getdigits(str, nbr);  
+    len = getdigits(str, nbr);
     for (i = 0; i < len; i++) {
         result = result * 10;
         result += (nbr[i] - '0');
