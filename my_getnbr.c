@@ -4,6 +4,17 @@
 ** File description:
 ** Returns a number, sent to the function as a string
 */
+int validate(char c, int *neg, char *nbr, int *len)
+{
+    if (c >= '0' && c <= '9' || (c == '-' && *neg == 0)) {
+        nbr[*len] = c;
+        *len += 1;
+        if (c == '-') {
+            *neg = 1;
+        }
+    }
+}
+
 int getdigits(char const *str, char *nbr)
 {
     int i = 0;
@@ -13,13 +24,7 @@ int getdigits(char const *str, char *nbr)
 
     do {
         c = str[i];
-        if (c >= '0' && c <= '9' || (c == '-' && neg == 0)) {
-            nbr[len] = c;
-            len += 1;
-            if (c == '-') {
-                neg = 1;
-            }
-	}
+        validate(c, &neg, nbr, &len);
         i ++;
     } while (c != '\0');
     nbr[len] = '\0';
