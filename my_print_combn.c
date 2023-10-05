@@ -5,9 +5,10 @@
 ** Function that displays, in ascending order, all the numbers
 ** composed by $n$ different digits numbers. Given $n$ digits
 ** (all different), only the smallest number composed by
-** thoses digits must be displayed. 
+** thoses digits must be displayed.
 */
-void print_digits(int s, int nbr, int maxfirst) {
+void print_digits(int s, int nbr, int maxfirst)
+{
     if (nbr < s) {
         my_putchar('0');
     }
@@ -23,12 +24,10 @@ int check_should_print(int n)
     int digit = n % 10;
     int curr;
 
-    while (n != 0)
-    {
-        n = n / 10; 
+    while (n != 0) {
+        n = n / 10;
         curr = n % 10;
-        if (curr >= digit || check_should_print(n) == 0)
-        {
+        if (curr >= digit || check_should_print(n) == 0) {
             return 0;
         }
     }
