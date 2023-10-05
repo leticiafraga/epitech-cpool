@@ -6,13 +6,12 @@
 */
 int validate(char c, int *neg, char *nbr, int *len)
 {
-    if (c >= '0' && c <= '9' || (c == '-' && *neg == 0)) {
+    if (c >= '0' && c <= '9') {
         nbr[*len] = c;
         *len += 1;
-        if (c == '-') {
-            *neg = 1;
-        }
+        return 1;
     }
+    return 0;
 }
 
 int getdigits(char const *str, char *nbr)
@@ -38,10 +37,10 @@ int my_getnbr(char const *str)
     int len = 0;
     char nbr[10];
     long int result = 0;
-    int neg = 0;
 
     len = getdigits(str, nbr);
-    for (i = 0; i < len; i++) {
+
+    for (i; i < len; i++) {
         result = result * 10;
         result += (nbr[i] - '0');
     }
