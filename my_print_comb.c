@@ -5,8 +5,6 @@
 ** Function that displays all the numbers composed by three different
 ** digits
 */
-#include "my_putchar.h"
-
 int conditional_print(int i, int j, int k)
 {
     if (i != j && k != j && k != i){
@@ -29,6 +27,7 @@ int validate(int i , int j)
             break;
         }
     }
+    return 0;
 }
 
 int iterate2(void)

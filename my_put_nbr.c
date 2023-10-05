@@ -13,6 +13,7 @@ int get_next(int nb)
         get_next(nb);
     }
     my_putchar(next + '0');
+    return 0;
 }
 
 int my_put_nbr(int nb)

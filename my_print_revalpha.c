@@ -5,8 +5,6 @@
 ** Function that, beginning with z, displays the lowercase alphabet
 ** in descending order, on a single line
 */
-#include "my_putchar.h"
-
 int my_print_revalpha(void)
 {
     int i;

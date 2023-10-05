@@ -5,8 +5,6 @@
 ** Function that displays all the digits, on a single line, in
 ** ascending order.
 */
-#include "my_putchar.h"
-
 int my_print_digits(void)
 {
     int i;

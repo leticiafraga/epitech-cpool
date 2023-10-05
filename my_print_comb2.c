@@ -5,8 +5,6 @@
 ** Function that displays, in ascending order, all the different
 ** combinations of two two-digit numbers
 */
-#include "my_putchar.h"
-
 int print_comb1(int i, int j, int k, int m)
 {
     my_putchar(i);
@@ -19,7 +17,7 @@ int print_comb1(int i, int j, int k, int m)
     }
     my_putchar(',');
     my_putchar(' ');
-    return 1;
+    return 0;
 }
 
 int my_print_comb2(void)
