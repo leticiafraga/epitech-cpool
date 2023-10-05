@@ -4,6 +4,8 @@ int main()
     my_putchar('\n');
     my_put_nbr(42);
     my_putchar('\n');
+    my_put_nbr(-42);
+    my_putchar('\n');
     my_put_nbr(-2147483648);
     my_putchar('\n');
     my_put_nbr(2147483647);
