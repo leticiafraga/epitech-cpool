@@ -4,7 +4,7 @@
 ** File description:
 ** Function that displays the number given as a parameter
 */
-int get_next(int nb)
+long int get_next(long int nb)
 {
     int next = nb % 10;
 
@@ -18,10 +18,12 @@ int get_next(int nb)
 
 int my_put_nbr(int nb)
 {
-    if (nb < 0) {
+    long int lg = nb;
+
+    if (lg < 0) {
         my_putchar('-');
-        nb = nb * -1;
+        lg = lg * -1;
     }
-    get_next(nb);
+    get_next(lg);
     return 0;
 }
