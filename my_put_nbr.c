@@ -6,7 +6,7 @@
 */
 long int get_next(long int nb)
 {
-    int next = nb % 10;
+    long int next = nb % 10;
 
     nb = nb / 10;
     if (nb != 0) {
