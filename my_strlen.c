@@ -16,6 +16,6 @@ int my_strlen(char const *str)
             i++;
         }
     } while (c != '\0');
-    my_putchar(i + '0');
+    my_put_nbr(i);
     return 0;
 }
