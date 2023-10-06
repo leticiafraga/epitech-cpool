@@ -8,5 +8,9 @@ int main()
     my_putchar('\n');
     my_put_nbr(my_compute_factorial_rec(0));
     my_putchar('\n');
+    my_put_nbr(my_compute_factorial_rec(12));
+    my_putchar('\n');
+    my_put_nbr(my_compute_factorial_rec(13));
+    my_putchar('\n');
     return 0;
 }
