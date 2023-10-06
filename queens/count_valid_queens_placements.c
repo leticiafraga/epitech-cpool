@@ -47,22 +47,16 @@ int iterate_cols(int **board, int n, int queens)
 
 int count_valid_queens_placements(int n)
 {
-    int **board;
+    int board[1000][1000];
     int i;
     int j;
     int res;
 
-    board = malloc(n * sizeof (int *));
     for (i = 0; i < n; i++) {
-        board[i] = malloc(n * sizeof *board[i]);
         for (j = 0; j < n; j++) {
             board[i][j] = 0;
         }
     }
     res = iterate_cols(board, n, 0);
-    for (i = 0; i < n; i++) {
-        free(board[i]);
-    }
-    free(board);
     return res;
 }
