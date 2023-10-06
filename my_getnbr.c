@@ -19,7 +19,7 @@ static int transform(char *nbr, int len, int neg)
     long int result = 0;
 
     nbr[len] = '\0';
-    if (neg == -1) {
+    if (neg == -1 && nbr[0] != '0') {
         my_putchar('-');
     }
     for (int i = 0; i < len; i++) {
