@@ -32,7 +32,7 @@ int transform(char *nbr, int len, int neg)
     return result;
 }
 
-int set_found(int valid, int found, int *neg)
+int set_found(int valid, int found)
 {
     if (valid == 1) {
         if (found == 0) {
@@ -43,6 +43,13 @@ int set_found(int valid, int found, int *neg)
         return 3;
     }
     return 0;
+}
+
+int set_neg(char const *str, int i, int found, int cur) {
+    if (found == 1 && i > 0 && str[i - 1] == '-') {
+        return 1;
+    }
+    return cur;
 }
 
 int getdigits(char const *str)
@@ -58,10 +65,8 @@ int getdigits(char const *str)
     do {
         c = str[i];
         valid = validate(c, nbr, &len);
-        found = set_found(valid, found, &neg);
-        if (found == 0 && i > 0 && str[i - 1] == '-') {
-            neg = 1;
-        }
+        found = set_found(valid, found);
+        neg = set_neg(str, i, found, neg);
         i ++;
     } while (c != '\0' && found != 3);
     return transform(nbr, len, neg);
