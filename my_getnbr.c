@@ -55,7 +55,6 @@ int getdigits(char const *str, char *nbr, int i)
 int my_getnbr(char const *str)
 {
     int i = 0;
-    char c;
     int result = 0;
     char nbr[10];
 
