@@ -23,7 +23,8 @@ void line1(unsigned int size)
 
 void top(unsigned int size)
 {
-    int spaces = size*3 - 2;
+    int spaces = (size * 2) + (size/2) + 1;
+
     for (int i = 1; i < size; i++) {
         print_spaces(spaces);
         my_putchar('*');
@@ -36,7 +37,8 @@ void top(unsigned int size)
 
 void bottom(unsigned int size)
 {
-    int spaces = size*2;
+    int spaces = size * 2;
+
     for (int i = size - 1; i > 0; i--) {
         print_spaces(spaces);
         my_putchar('*');
@@ -47,7 +49,6 @@ void bottom(unsigned int size)
     }
 }
 
-
 void border(unsigned int size)
 {
     print_ast(size*2 + 1);
@@ -56,11 +57,25 @@ void border(unsigned int size)
     my_putchar('\n');
 }
 
+void upmid(unsigned int size)
+{
+    int spaces = size;
+    for (int i = 0; i < size; i++) {
+        print_spaces(i + 1);
+        print_ast(1);
+        print_spaces((size) *3 - 2);
+        print_ast(1);
+        my_putchar('\n');
+        spaces -= 2;
+    }
+}
+
 void star (unsigned int size)
 {
     line1(size);
     top(size);
     border(size);
+    upmid(size);
     border(size);
     bottom(size);
     line1(size);
