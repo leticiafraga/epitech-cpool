@@ -19,16 +19,18 @@ static int transform(char *nbr, int len, int neg)
     long int result = 0;
 
     nbr[len] = '\0';
-    if (neg == -1 && nbr[0] != '0') {
-        my_putchar('-');
-    }
     for (int i = 0; i < len; i++) {
         result = result * 10;
         result += (nbr[i] - '0');
-        if (result > 2147483647 || result < -2147483647) {
+        if ((neg == 1 && result > 2147483647)
+            || (neg == -1 && result > 2147483648)) {
             return 0;
         }
     }
+    if (neg == -1 && nbr[0] != '0') {
+        result = result * -1;
+    }
+
     return result;
 }
 
