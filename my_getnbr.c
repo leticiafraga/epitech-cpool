@@ -4,7 +4,7 @@
 ** File description:
 ** Returns a number, sent to the function as a string
 */
-int validate(char c, int *neg, char *nbr, int *len)
+int validate(char c, char *nbr, int *len)
 {
     if (c >= '0' && c <= '9') {
         nbr[*len] = c;
@@ -31,7 +31,7 @@ int transform(char *nbr, int len, int neg)
     return result;
 }
 
-int getdigits(char const *str, char *nbr)
+int getdigits(char const *str, char *nbr, int i)
 {
     char c;
     int len = 0;
@@ -43,7 +43,7 @@ int getdigits(char const *str, char *nbr)
         if (found == 0 && c == '-') {
             neg = 1;
         }
-        if (validate(c, &neg, nbr, &len)) {
+        if (validate(c, nbr, &len)) {
             found = 1;
         }
         i ++;

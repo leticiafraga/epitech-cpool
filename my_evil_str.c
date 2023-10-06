@@ -34,8 +34,6 @@ char *my_evil_str(char *str)
     int last = len - 1;
     int middle = last / 2;
     int i;
-    char swap;
-
     for (i = 0; i <= middle; i++) {
         swap_char(&str[i], &str[last]);
         last--;
