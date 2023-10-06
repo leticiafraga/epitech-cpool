@@ -15,8 +15,11 @@ void print_ast(int n)
 
 void line1(unsigned int size)
 {
-    print_spaces(size*2);
+    print_spaces(size * 2);
     print_spaces(size - 1);
+    if (size == 1) {
+        print_spaces(1);
+    }
     my_putchar('*');
     my_putchar('\n');
 }
@@ -53,13 +56,16 @@ void border(unsigned int size)
 {
     print_ast(size*2 + 1);
     print_spaces(size*2 - 3);
+    if (size == 1) {
+        print_spaces(1);
+    }
     print_ast(size*2 + 1);
     my_putchar('\n');
 }
 
 void upmid(unsigned int size)
 {
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size - 1; i++) {
         print_spaces(i + 1);
         print_ast(1);
         print_spaces((size * 6) - 5 - (2 * i));
@@ -67,6 +73,21 @@ void upmid(unsigned int size)
         my_putchar('\n');
     }
 }
+
+void mid(unsigned int size)
+{
+    int mid_spaces = (size * 2) + (size - 2) * 2 + 1;
+
+    if (size == 1) {
+        mid_spaces += 2;
+    }
+    print_spaces(size);
+    print_ast(1);
+    print_spaces(mid_spaces);
+    print_ast(1);
+    my_putchar('\n');
+}
+
 
 void lomid(unsigned int size)
 {
@@ -86,6 +107,7 @@ void star (unsigned int size)
     top(size);
     border(size);
     upmid(size);
+    mid(size);
     lomid(size);
     border(size);
     bottom(size);
