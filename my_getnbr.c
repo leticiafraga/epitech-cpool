@@ -47,11 +47,9 @@ static int set_found(int valid, int found)
 
 static int set_neg(char const *str, int i, int found, int cur)
 {
-    if (found == 1) {
-        for (int j = i - 1; j >= 0; j --) {
-            if (str[j] == '-') {
-                cur *= -1;
-            }
+    for (int j = i - 1; j >= 0; j --) {
+        if (str[j] == '-') {
+            cur *= -1;
         }
     }
     return cur;
@@ -71,7 +69,9 @@ int my_getnbr(char const *str)
         c = str[i];
         valid = validate(c, nbr, &len);
         found = set_found(valid, found);
-        neg = set_neg(str, i, found, neg);
+        if (found == 1){
+            neg = set_neg(str, i, found, neg);
+        }
         i ++;
     } while (c != '\0' && found != 3);
     return transform(nbr, len, neg);
