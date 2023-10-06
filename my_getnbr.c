@@ -18,46 +18,56 @@ int transform(char *nbr, int len, int neg)
 {
     long int result = 0;
 
+    nbr[len] = '\0';
     if (neg == 1) {
         my_putchar('-');
     }
     for (int i = 0; i < len; i++) {
         result = result * 10;
         result += (nbr[i] - '0');
-    }
-    if (result > 2147483647 || result < -2147483647) {
-        return 0;
+        if (result > 2147483647 || result < -2147483647) {
+            return 0;
+        }
     }
     return result;
 }
 
-int getdigits(char const *str, char *nbr, int i)
+int set_found(int valid, int found, int *neg)
+{
+    if (valid == 1) {
+        if (found == 0) {
+            return 1;
+        }
+        return 2;
+    } else if ((found == 1 || found == 2) && valid == 0) {
+        return 3;
+    }
+    return 0;
+}
+
+int getdigits(char const *str)
 {
     char c;
+    char nbr[20];
+    int i = 0;
     int len = 0;
     int neg = 0;
     int found = 0;
+    int valid;
 
     do {
         c = str[i];
-        if (found == 0 && c == '-') {
+        valid = validate(c, nbr, &len);
+        found = set_found(valid, found, &neg);
+        if (found == 0 && i > 0 && str[i - 1] == '-') {
             neg = 1;
         }
-        if (validate(c, nbr, &len)) {
-            found = 1;
-        }
         i ++;
-    } while (c != '\0');
-    nbr[len] = '\0';
+    } while (c != '\0' && found != 3);
     return transform(nbr, len, neg);
 }
 
 int my_getnbr(char const *str)
 {
-    int i = 0;
-    int result = 0;
-    char nbr[10];
-
-    result = getdigits(str, nbr, i);
-    return result;
+    return getdigits(str);
 }
