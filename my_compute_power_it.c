@@ -9,10 +9,10 @@ int my_compute_power_it(int nb, int p)
 {
     int res = nb;
 
-    if (nb == 0) {
+    if (p == 0) {
         return 1;
     }
-    if (p == 0) {
+    if (p < 0 || nb == 0) {
         return 0;
     }
     for (int i = 1; i < p; i++) {
