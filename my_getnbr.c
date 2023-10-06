@@ -19,7 +19,7 @@ static int transform(char *nbr, int len, int neg)
     long int result = 0;
 
     nbr[len] = '\0';
-    if (neg == 1) {
+    if (neg == -1) {
         my_putchar('-');
     }
     for (int i = 0; i < len; i++) {
@@ -47,8 +47,12 @@ static int set_found(int valid, int found)
 
 static int set_neg(char const *str, int i, int found, int cur)
 {
-    if (found == 1 && i > 0 && str[i - 1] == '-') {
-        return 1;
+    if (found == 1) {
+        for (int j = i - 1; j >= 0; j --) {
+            if (str[j] == '-') {
+                cur *= -1;
+            }
+        }
     }
     return cur;
 }
@@ -59,7 +63,7 @@ int my_getnbr(char const *str)
     char nbr[20];
     int i = 0;
     int len = 0;
-    int neg = 0;
+    int neg = 1;
     int found = 0;
     int valid;
 
