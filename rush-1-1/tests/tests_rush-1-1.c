@@ -9,4 +9,6 @@ int main()
     rush(2, 3);
     rush(3, 4);
     rush(6, 5);
+    rush(6, -1);
+    rush(-2, 5);
 }

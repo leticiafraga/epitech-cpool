@@ -31,7 +31,7 @@ void vertical(int x, int y)
 
 void rush(int x, int y)
 {
-    if (x == 0 || y == 0)
+    if (x <= 0 || y <= 0)
         return;
     horizontal(x, y);
     vertical(x, y);
