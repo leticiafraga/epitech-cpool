@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** RUSH_1_1
+** RUSH_1_3
 ** File description:
 ** Displays a rectangle with width x and height y
 */
