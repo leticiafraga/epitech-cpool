@@ -19,29 +19,37 @@ void print_spaces(int n)
     }
 }
 
-void get_corner(int x, int y, int pos)
+void get_corner(int x, int y, struct square_parts *square, int pos)
 {
     if (x == 1 || y == 1)
-        my_putchar('B');
+        my_putchar(square->body);
     else
         switch (pos) {
         case 0:
-            my_putchar('A');
+            my_putchar(square->corner_1);
+            break;
+        case 1:
+            my_putchar(square->corner_2);
+            break;
+        case 2:
+            my_putchar(square->corner_3);
             break;
         default:
-            my_putchar('C');
+            my_putchar(square->corner_4);
         }
 }
 
-void horizontal(int x, int y, struct square_parts *square, int pos)
+void horizontal(int x, int y, struct square_parts *square, int bottom)
 {
+    int pos = bottom * 2;
+
     if (x > 1) {
-        get_corner(x, y, pos);
+        get_corner(x, y, square, pos);
     }
     for (int i = 1; i < x - 1; i++) {
         my_putchar(square->body);
     }
-    get_corner(x, y, pos);
+    get_corner(x, y, square, pos + 1);
     my_putchar('\n');
 }
 

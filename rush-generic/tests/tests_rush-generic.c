@@ -9,7 +9,11 @@ struct square_parts {
 int main()
 {
     struct square_parts square;
-    square.body = 'L';
+    square.body = '*';
+    square.corner_1 = 'A';
+    square.corner_2 = 'B';
+    square.corner_3 = 'C';
+    square.corner_4 = 'D';
     rush_generic(0, 0, &square);
     rush_generic(0, 1, &square);
     rush_generic(1, 0, &square);
