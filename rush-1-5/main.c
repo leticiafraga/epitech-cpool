@@ -5,14 +5,14 @@
 ** Displays a rectangle with width x and height y
 */
 
-void print_spaces(int n)
+static void print_spaces(int n)
 {
     for (int i = 0; i < n; i++) {
         my_putchar(' ');
     }
 }
 
-void get_corner(int x, int y, int pos)
+static void get_corner(int x, int y, int pos)
 {
     if (x == 1 || y == 1)
         my_putchar('B');
@@ -26,7 +26,7 @@ void get_corner(int x, int y, int pos)
         }
 }
 
-void horizontal(int x, int y)
+static void horizontal(int x, int y)
 {
     if (x > 1) {
         get_corner(x, y, 0);
@@ -38,7 +38,7 @@ void horizontal(int x, int y)
     my_putchar('\n');
 }
 
-void horizontal_rev(int x, int y)
+static void horizontal_rev(int x, int y)
 {
     if (x > 1) {
         get_corner(x, y, 1);
@@ -50,8 +50,7 @@ void horizontal_rev(int x, int y)
     my_putchar('\n');
 }
 
-
-void vertical(int x, int y)
+static void vertical(int x, int y)
 {
     int body = y - 2;
 
