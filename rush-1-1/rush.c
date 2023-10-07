@@ -1,3 +1,11 @@
+/*
+** EPITECH PROJECT, 2023
+** RUSH_1_1
+** File description:
+** Displays a rectangle with width x and height y
+*/
+#include <stdio.h>
+
 void print_spaces(int n)
 {
     for (int i = 0; i < n; i++) {
@@ -19,7 +27,8 @@ void horizontal(int x, int y)
 void vertical(int x, int y)
 {
     int body = y - 2;
-    for (int i = 0; i < body; i++) {
+
+    for (int i = 0; i < body; i ++) {
         my_putchar('|');
         if (x > 1) {
             print_spaces(x - 2);
@@ -31,10 +40,12 @@ void vertical(int x, int y)
 
 void rush(int x, int y)
 {
-    if (x <= 0 || y <= 0)
-        return;
-    horizontal(x, y);
-    vertical(x, y);
-    if (y > 1)
+    if (x <= 0 || y <= 0) {
+        my_put_err();
+    } else {
         horizontal(x, y);
+        vertical(x, y);
+        if (y > 1)
+            horizontal(x, y);
+    }
 }
