@@ -10,5 +10,7 @@ int main()
     my_putchar('\n');
     my_put_nbr(my_is_prime(-4));
     my_putchar('\n');
+    my_put_nbr(my_is_prime(2));
+    my_putchar('\n');
     return 0;
 }
