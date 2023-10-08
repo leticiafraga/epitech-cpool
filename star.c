@@ -104,7 +104,7 @@ static void lomid(unsigned int size)
     }
 }
 
-void star (unsigned int size)
+void star(unsigned int size)
 {
     if (size > 0) {
         line1(size);
