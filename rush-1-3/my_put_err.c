@@ -7,7 +7,7 @@
 
 void my_put_err(void)
 {
-    char *msg = "Invalid output\n";
+    char *msg = "Invalid size\n";
 
     write(2, msg, 15);
 }
