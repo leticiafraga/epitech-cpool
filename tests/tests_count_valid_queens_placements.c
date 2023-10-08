@@ -16,11 +16,12 @@ int main()
     my_putchar('\n');
     my_put_nbr(count_valid_queens_placements(8));
     my_putchar('\n');
-    my_put_nbr(count_valid_queens_placements(9));
+    my_put_nbr(count_valid_queens_placements(19));
     my_putchar('\n');
-    my_put_nbr(count_valid_queens_placements(10));
+    my_put_nbr(count_valid_queens_placements(-1));
+    my_putchar('\n');
+    my_put_nbr(count_valid_queens_placements(0));
     my_putchar('\n');
 
-    
     return 0;
 }
