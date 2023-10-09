@@ -20,8 +20,11 @@ int my_strncmp(char const *s1, char const *s2, int n)
     int i = 0;
     int compare;
 
-    compare = compare_pos(s1, s2, 0);
-    if (compare != 0)
-        return compare;
+    while (i < n) {
+	compare = compare_pos(s1, s2, i);
+	if (compare != 0)
+            return compare;
+	i++;
+    }
     return 0;
 }
