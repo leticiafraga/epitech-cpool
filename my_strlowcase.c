@@ -5,11 +5,6 @@
 ** Function that puts every letter of every word in it in lowercase
 */
 
-int is_upcase(char c)
-{
-    return (c >= 'A' && c <= 'Z') ? 1 : 0;
-}
-
 char *my_strlowcase(char *str)
 {
     int i = 0;
