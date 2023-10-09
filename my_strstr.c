@@ -10,7 +10,7 @@ int compare_to_find(char *str, char const *to_find, int i)
 {
     int j = 0;
 
-    while (str[i] != '\0') {
+    while (str[i] != '\0' && to_find[j] != 0) {
         if (str[i] != to_find[j]) {
             return 0;
         }
