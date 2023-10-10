@@ -24,7 +24,6 @@ int my_putnbr_base(int nbr, char const *base)
         res[i] = (dig + '0');
         i++;
     }
-    i--;
     while (i-- >= 0)
         write(1, &res[i], 1);
     return 0;
