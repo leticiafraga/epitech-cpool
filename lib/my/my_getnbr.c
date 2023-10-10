@@ -30,7 +30,6 @@ static int transform(char *nbr, int len, int neg)
     if (neg == -1 && nbr[0] != '0') {
         result = result * -1;
     }
-
     return result;
 }
 

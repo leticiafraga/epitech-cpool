@@ -1,11 +1,19 @@
 /*
 ** EPITECH PROJECT, 2023
-** my_strcat
+** my_strncat
 ** File description:
-** my_showstr
+** my_strncat
 */
 
 char *my_strncat(char *dest, char const *src, int nb)
 {
-    return 0;
+    int i = 0;
+    int len = my_strlen(dest);
+
+    while (src[i] != '\0' && i < nb) {
+        dest[len] = src[i];
+        len++;
+        i++;
+    }
+    return dest;
 }
