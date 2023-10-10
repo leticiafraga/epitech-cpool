@@ -47,7 +47,7 @@ static int transform(char *nbr, int len, int neg, char const *base)
             return 0;
         }
     }
-    if (neg == -1 && nbr[0] != '0') {
+    if (neg == -1) {
         result = result * -1;
     }
     return result;
@@ -65,16 +65,19 @@ static int set_found(int valid, int found)
     return 0;
 }
 
-static int set_neg(char const *str, int i, int found, int cur)
+static int set_neg(char const *str, int i, int found)
 {
+    int neg = 1;
+
     for (int j = i - 1; j >= 0; j --) {
         if (str[j] == '-') {
-            cur *= -1;
+            neg *= -1;
         }
-        if (str[j] != '+' && str[i] != '-')
+        if ((str[j] != '+') && (str[j] != '-')) {
             break;
+        }
     }
-    return cur;
+    return neg;
 }
 
 int my_getnbr_base(char const *str, char const *base)
@@ -92,7 +95,7 @@ int my_getnbr_base(char const *str, char const *base)
         valid = validate(c, nbr, &len, base);
         found = set_found(valid, found);
         if (found == 1){
-            neg = set_neg(str, i, found, neg);
+            neg = set_neg(str, i, found);
         }
         i ++;
         c = str[i];
