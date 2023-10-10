@@ -10,7 +10,7 @@ int my_putnbr_base(int nbr, char const *base)
 {
     int len = my_strlen(base);
     int dig;
-    char *res[40];
+    char res[40];
     int i = 0;
     char neg = '-';
 
@@ -20,11 +20,12 @@ int my_putnbr_base(int nbr, char const *base)
     }
     while (nbr != 0) {
         dig = nbr % len;
-        nbr /= len;
-        res[i] = (dig + '0');
+        nbr = nbr / len;
+        res[i] = base[dig];
         i++;
     }
-    my_revstr(res);
-    my_putstr(res);
+    i--;
+    while (i >= 0)
+        my_putchar(res[i--]);
     return 0;
 }
