@@ -90,13 +90,14 @@ int my_getnbr_base(char const *str, char const *base)
     char nbr[30];
     int valid;
 
+    if (str[0] == '\0')
+        return 0;
     c = str[i];
     do {
         valid = validate(c, nbr, &len, base);
         found = set_found(valid, found);
-        if (found == 1){
+        if (found == 1)
             neg = set_neg(str, i, found);
-        }
         i ++;
         c = str[i];
     } while (c != '\0');
