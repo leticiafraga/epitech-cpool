@@ -1,13 +1,18 @@
 #include <criterion/criterion.h>
 
 Test(my_strncmp, test_my_strncmp) {
-    cr_assert_eq(my_strncmp("Hello world", "Hello world", 11),
-                 strncmp("Hello world", "Hello world", 11));
+    cr_assert_eq(my_strncmp("Hello world", "Hello world", 30),
+                 strncmp("Hello world", "Hello world", 30));
+}
+
+Test(my_strncmp, test_equal_partial2) {
+    cr_assert_eq(my_strncmp("Hello world", "Hello", 5),
+                 strncmp("Hello world", "Hello", 5));
 }
 
 Test(my_strncmp, test_equal_partial) {
-    cr_assert_eq(my_strncmp("Hello world", "Helloo", 5),
-                 strncmp("Hello world", "Helloo", 5));
+    cr_assert_eq(my_strncmp("Hell", "Hello", 5),
+                 strncmp("Hell", "Hello", 5));
 }
 
 Test(my_strncmp, test_not_equal) {
@@ -41,6 +46,11 @@ Test(my_strncmp, test_equal_zero3) {
 }
 
 Test(my_strncmp, test_bigger_n) {
-    cr_assert_eq(my_strncmp("Hello world", "Hello world", 20),
-                 strncmp("Hello world", "Hello world", 20));
+    cr_assert_eq(my_strncmp("Hello", "Hello world", 20),
+                 strncmp("Hello", "Hello world", 20));
+}
+
+Test(my_strncmp, test_bigger_n2) {
+    cr_assert_eq(my_strncmp("Hello world", "Hello", 20),
+                 strncmp("Hello world", "Hello", 20));
 }
