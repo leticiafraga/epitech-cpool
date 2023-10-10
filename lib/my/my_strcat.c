@@ -2,10 +2,17 @@
 ** EPITECH PROJECT, 2023
 ** my_strcat
 ** File description:
-** my_showstr
+** my_strcat
 */
 
 char *my_strcat(char *dest, char const *src)
 {
-    return 0;
+    int i = 0;
+    int len = my_strlen(dest);
+    while (src[i] != '\0') {
+        dest[len] = src[i];
+        len++;
+        i++;        
+    }
+    return dest;
 }
