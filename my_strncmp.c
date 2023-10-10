@@ -4,16 +4,6 @@
 ** File description:
 ** Reproduce the behavior of the strncmp function.
 */
-static int compare_pos(char const *s1, char const *s2, int i)
-{
-    if (s1[i] > s2[i]) {
-        return 1;
-    }
-    if (s1[i] < s2[i]) {
-        return -1;
-    }
-    return 0;
-}
 
 int my_strncmp(char const *s1, char const *s2, int n)
 {
@@ -21,9 +11,10 @@ int my_strncmp(char const *s1, char const *s2, int n)
     int compare;
 
     while (i < n) {
-        compare = compare_pos(s1, s2, i);
-        if (compare != 0)
-            return compare;
+        if (s1[i] != s2[i])
+            return (unsigned char) s1[i] - (unsigned char) s2[i];
+        if (s1[i] == '\0')
+            return 0;
         i++;
     }
     return 0;
