@@ -10,9 +10,10 @@ int my_strlen(char const *str)
     int i = 0;
     char c;
 
+    c = str[i];
     while (c != '\0') {
-        c = str[i];
         i++;
+        c = str[i];
     }
     return i;
 }
