@@ -31,7 +31,7 @@ static int validate(char c, char *nbr, int *len, char const *base)
     return 0;
 }
 
-static int transform(char *nbr, int len, char const *base)
+static int transform(char *nbr, int len, int neg, char const *base)
 {
     long int result = 0;
     int baselen = my_strlen(base);
@@ -42,6 +42,9 @@ static int transform(char *nbr, int len, char const *base)
         pos = findpos(nbr[i], base);
         result = result * baselen;
         result += pos;
+    }
+    if (neg == -1) {
+        result = result * -1;
     }
     return result;
 }
@@ -78,8 +81,9 @@ int my_getnbr_base(char const *str, char const *base)
     char c;
     int i = 0;
     int len = 0;
+    int neg = 1;
     int found = 0;
-    char *nbr = malloc(sizeof(char) * 30);
+    char nbr[30];
     int valid;
 
     if (str[0] == '\0')
@@ -88,8 +92,10 @@ int my_getnbr_base(char const *str, char const *base)
     do {
         valid = validate(c, nbr, &len, base);
         found = set_found(valid, found);
+        if (found == 1)
+            neg = set_neg(str, i, found);
         i ++;
         c = str[i];
     } while (c != '\0');
-    return transform(nbr, len, base);
+    return transform(nbr, len, neg, base);
 }

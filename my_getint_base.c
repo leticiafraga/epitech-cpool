@@ -5,41 +5,44 @@
 ** Function that converts and returns a decimal number
 ** into a number in a given base.
 */
-int my_getint_base_size(char *dest, int nbr, char const *base)
+#include <stdlib.h>
+
+int my_getint_base_size(int nbr, char const *base)
 {
     int len = my_strlen(base);
-    int dig;
     int i = 0;
 
     if (nbr < 0) {
         i += 1;
+        nbr *= -1;
     }
     while (nbr != 0) {
-        dig = nbr % len;
         nbr = nbr / len;
         i++;
     }
     return i;
 }
 
-char *my_getint_base(char *dest, int nbr, char const *base)
+char *my_getint_base(int nbr, char const *base)
 {
     int len = my_strlen(base);
     int dig;
     int i = 0;
-    char neg = '-';
+    char neg = 0;
+    int size = my_getint_base_size(nbr, base);
+    char *dest = malloc(sizeof(char) * (size + 1));
 
     if (nbr < 0) {
-        write(1, &neg, 1);
         nbr *= -1;
+        neg = 1;
     }
     while (nbr != 0) {
         dig = nbr % len;
         nbr = nbr / len;
-        dest[i] = base[dig];
-        i++;
+        dest[i++] = base[dig];
     }
+    if (neg)
+        dest[i++] = '-';
     dest[i] = '\0';
-    my_revstr(dest);
-    return dest;
+    return my_revstr(dest);
 }
