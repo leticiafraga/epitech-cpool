@@ -44,5 +44,5 @@ int count_island(char **world)
         search_line(world, len, &count);
         len++;
     }
-    return 0;
+    return count - '0';
 }
