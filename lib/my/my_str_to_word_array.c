@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-int is_alphanumeric(char c)
+static int is_alphanumeric(char c)
 {
     return (is_letter(c) == 1
             || is_number(c) == 1)
@@ -27,7 +27,7 @@ static int is_new_word(char const *str, int i)
         (is_alphanumeric(str[i]) == 1 && is_alphanumeric(str[i - 1]) == 0);
 }
 
-int count_words(char const *str)
+static int count_words(char const *str)
 {
     int i = 0;
     int words = 0;

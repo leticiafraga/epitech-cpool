@@ -41,5 +41,7 @@ char *my_strncpy(char *dest, char const *src, int n);
 char *my_strstr(char *str, char const *to_find);
 char *my_strupcase(char *str);
 void my_swap(int *a , int *b);
+int my_show_word_array(char *const *tab);
+char **my_str_to_word_array(char const *str);
 
 #endif
