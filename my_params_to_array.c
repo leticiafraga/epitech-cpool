@@ -5,8 +5,6 @@
 ** Function that stores the program’s parameters into
 ** an array of structures and returns it
 */
-#include <stdlib.h>
-
 struct info_param *my_params_to_array(int ac, char **av)
 {
     struct info_param *arr = malloc(sizeof(struct info_param) * ac);
