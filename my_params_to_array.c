@@ -11,8 +11,9 @@ struct info_param *my_params_to_array(int ac, char **av)
 {
     struct info_param *arr = malloc(sizeof(struct info_param) * ac);
     int len;
+    int i = 0;
 
-    for (int i = 0; i < ac; i++) {
+    for (i = 0; i < ac; i++) {
         len = my_strlen(av[i]);
         arr[i].length = len;
         arr[i].str = av[i];
@@ -20,5 +21,6 @@ struct info_param *my_params_to_array(int ac, char **av)
         arr[i].copy = my_strcpy(arr[i].copy, av[i]);
         arr[i].word_array = my_str_to_word_array(av[i]);
     }
+    arr[i].str = 0;
     return arr;
 }
