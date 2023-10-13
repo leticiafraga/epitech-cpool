@@ -16,18 +16,22 @@ static int validate_op(char c)
 
 static int div(int n1, int n2)
 {
-    if (n2 == 0)
+    if (n2 == 0) {
         write(2, "Stop: division by zero", 23);
-    else
+        my_putchar('0');
+        return 84;
+    } else
         my_put_nbr(n1 / n2);
     return 0;
 }
 
 static int mod(int n1, int n2)
 {
-    if (n2 == 0)
+    if (n2 == 0) {
         write(2, "Stop: modulo by zero", 21);
-    else
+        my_putchar('0');
+        return 84;
+    } else
         my_put_nbr(n1 % n2);
     return 0;
 }
@@ -37,21 +41,20 @@ static int execute(int n1, int n2, char opv)
     switch (opv) {
     case '-':
         my_put_nbr(n1 - n2);
-        break;
+        return 0;
     case '*':
         my_put_nbr(n1 * n2);
-        break;
+        return 0;
     case '+':
         my_put_nbr(n1 + n2);
-        break;
+        return 0;
     case '/':
-        div(n1, n2);
-        break;
+        return div(n1, n2);
     case '%':
-        mod(n1, n2);
-        break;
+        return mod(n1, n2);
     default:
-        break;
+        my_putchar('0');
+        return 84;
     }
 }
 
@@ -73,6 +76,5 @@ int main(int ac, char **av)
         if (validate_op(op[i]))
             opv = op[i];
     }
-    execute(n1, n2, opv);
-    return 0;
+    return execute(n1, n2, opv);
 }
