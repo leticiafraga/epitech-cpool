@@ -39,7 +39,6 @@ SRC	=	helpers.c	\
 		my_strupcase.c	\
 		my_swap.c	\
 
-
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	libmy.a
