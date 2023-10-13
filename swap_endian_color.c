@@ -12,7 +12,7 @@ struct IntChar {
 };
 
 union Color {
-    int i;
+    unsigned int i;
     struct IntChar ch;
 };
 
