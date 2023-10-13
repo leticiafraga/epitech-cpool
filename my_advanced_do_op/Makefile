@@ -9,7 +9,7 @@ SRC	=	main.c
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	do-op
+NAME	=	my_advanced_do-op
 
 all: $(NAME)
 
