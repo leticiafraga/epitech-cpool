@@ -17,7 +17,7 @@ static int validate_op(char c)
 static int div(int n1, int n2)
 {
     if (n2 == 0)
-        my_putstr("Stop: division by zero");
+        write(2, "Stop: division by zero", 23);
     else
         my_put_nbr(n1 / n2);
     return 0;
@@ -26,7 +26,7 @@ static int div(int n1, int n2)
 static int mod(int n1, int n2)
 {
     if (n2 == 0)
-        my_putstr("Stop: modulo by zero");
+        write(2, "Stop: modulo by zero", 21);
     else
         my_put_nbr(n1 % n2);
     return 0;
