@@ -5,6 +5,7 @@
 ** Function that returns 1 if the string passed as parameter only
 ** contains digits and 0 otherwise
 */
+#include "../../include/my.h"
 
 int my_str_isnum(char const *str)
 {

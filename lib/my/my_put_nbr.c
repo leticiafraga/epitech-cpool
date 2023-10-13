@@ -4,6 +4,8 @@
 ** File description:
 ** Function that displays the number given as a parameter
 */
+#include "../../include/my.h"
+
 static long int get_next(long int nb)
 {
     long int next = nb % 10;
