@@ -4,20 +4,29 @@
 ** File description:
 ** Changes the endianness of the color and returns it
 */
+struct IntChar {
+    char char1;
+    char char2;
+    char char3;
+    char char4;
+};
 
 union Color {
     int i;
-    char str[4];
+    struct IntChar ch;
 };
 
 int swap_endian_color(int color)
 {
     union Color c;
-    int newc = 0;
+    char tmp;
 
     c.i = color;
-    for (int i = 0; i < 4; i++) {
-        newc += c.str[i] << (8 * (3 - i));
-    }
-    return newc;
+    tmp = c.ch.char1;
+    c.ch.char1 = c.ch.char4;
+    c.ch.char4 = tmp;
+    tmp = c.ch.char2;
+    c.ch.char2 = c.ch.char3;
+    c.ch.char3 = tmp;
+    return c.i;
 }
