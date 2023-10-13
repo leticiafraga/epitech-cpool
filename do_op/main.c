@@ -5,6 +5,7 @@
 ** Program to execute operations
 */
 #include "../include/my.h"
+#include <unistd.h>
 
 static int validate_op(char c)
 {
