@@ -4,10 +4,11 @@
 ** File description:
 ** Operator Funcs
 */
-#include "my.h"
-#include "operator.h"
 #ifndef OP_FN
     #define OP_FN
+
+#include "my.h"
+#include "operator.h"
 const struct operator OPERATORS_FUNCS[] = {
     {"+", &my_add},
     {"-", &my_sub},
@@ -16,4 +17,5 @@ const struct operator OPERATORS_FUNCS[] = {
     {"%", &my_mod},
     {"", &my_usage}
 };
+
 #endif

@@ -5,7 +5,7 @@
 ** Operations
 */
 
-#include "../../include/my.h"
+#include "../include/my.h"
 
 int my_div(int n1, int n2)
 {

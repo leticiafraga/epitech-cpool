@@ -5,7 +5,9 @@
 ## Makefile 1
 ##
 
-SRC	=	main.c
+SRC	=	main.c \
+		usage.c \
+		operations.c
 
 OBJ	=	$(SRC:.c=.o)
 
