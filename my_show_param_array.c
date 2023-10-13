@@ -5,6 +5,8 @@
 ** Function that displays the content of an array created
 ** with my_params_to_array
 */
+#include "include/my.h"
+
 int my_show_param_array(struct info_param *const par)
 {
     int i = 0;
