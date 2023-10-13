@@ -19,7 +19,6 @@ static int div(int n1, int n2)
 {
     if (n2 == 0) {
         write(2, "Stop: division by zero", 23);
-        my_putchar('0');
         return 84;
     } else
         my_put_nbr(n1 / n2);
@@ -30,7 +29,6 @@ static int mod(int n1, int n2)
 {
     if (n2 == 0) {
         write(2, "Stop: modulo by zero", 21);
-        my_putchar('0');
         return 84;
     } else
         my_put_nbr(n1 % n2);
