@@ -6,6 +6,7 @@
 ** contains alphabetical characters and 0 if the string contains
 ** another type of character.
 */
+#include "../../include/my.h"
 
 int my_str_isalpha(char const *str)
 {

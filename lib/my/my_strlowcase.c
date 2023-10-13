@@ -4,6 +4,7 @@
 ** File description:
 ** Function that puts every letter of every word in it in lowercase
 */
+#include "../../include/my.h"
 
 char *my_strlowcase(char *str)
 {

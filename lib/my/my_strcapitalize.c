@@ -4,6 +4,7 @@
 ** File description:
 ** Function that capitalizes the first letter of each word
 */
+#include "../../include/my.h"
 
 static void check_prev(char *str, int i)
 {

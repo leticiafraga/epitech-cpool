@@ -5,6 +5,7 @@
 ** Function that returns 1 if the string passed as parameter only
 ** contains uppercase alphabetical characters
 */
+#include "../../include/my.h"
 
 int my_str_isupper(char const *str)
 {

@@ -5,6 +5,7 @@
 ** Function that returns 1 if the string passed as parameter only
 ** contains lowercase alphabetical characters
 */
+#include "../../include/my.h"
 
 int my_str_islower(char const *str)
 {

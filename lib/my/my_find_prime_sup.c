@@ -5,6 +5,8 @@
 ** Function that returns the smallest prime number that is
 ** greater than, or equal to, the number given as a parameter
 */
+#include "../../include/my.h"
+
 int my_find_prime_sup(int nb)
 {
     int found = 0;

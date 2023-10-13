@@ -1,0 +1,78 @@
+/*
+** EPITECH PROJECT, 2023
+** do-op
+** File description:
+** Program to execute operations
+*/
+#include "../include/my.h"
+
+static int validate_op(char c)
+{
+    if (c == '-' || c == '+' || c == '/' || c == '*' || c == '%') {
+        return 1;
+    }
+    return 0;
+}
+
+static int div(int n1, int n2)
+{
+    if (n2 == 0)
+        my_putstr("Stop: division by zero");
+    else
+        my_put_nbr(n1 / n2);
+    return 0;
+}
+
+static int mod(int n1, int n2)
+{
+    if (n2 == 0)
+        my_putstr("Stop: modulo by zero");
+    else
+        my_put_nbr(n1 % n2);
+    return 0;
+}
+
+static int execute(int n1, int n2, char opv)
+{
+    switch (opv) {
+    case '-':
+        my_put_nbr(n1 - n2);
+        break;
+    case '*':
+        my_put_nbr(n1 * n2);
+        break;
+    case '+':
+        my_put_nbr(n1 + n2);
+        break;
+    case '/':
+        div(n1, n2);
+        break;
+    case '%':
+        mod(n1, n2);
+        break;
+    default:
+        break;
+    }
+}
+
+int main(int ac, char **av)
+{
+    int n1;
+    int n2;
+    char *op;
+    char opv;
+    int len;
+
+    if (ac != 4)
+        return 84;
+    n1 = my_getnbr(av[1]);
+    n2 = my_getnbr(av[3]);
+    op = av[2];
+    len = my_strlen(op);
+    for (int i = 0; i < len; i++) {
+        if (validate_op(op[i]))
+            opv = op[i];
+    }
+    execute(n1, n2, opv);
+    return 0;
+}

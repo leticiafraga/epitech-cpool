@@ -4,6 +4,8 @@
 ** File description:
 ** Function that displays, one-by-one, the characters of a string.
 */
+#include "../../include/my.h"
+
 int my_putstr(char const *str)
 {
     int i = 0;

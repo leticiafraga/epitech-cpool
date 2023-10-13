@@ -4,7 +4,7 @@
 ** File description:
 ** Function that splits a string into words.
 */
-
+#include "../../include/my.h"
 #include <stdlib.h>
 
 static int is_alphanumeric(char c)

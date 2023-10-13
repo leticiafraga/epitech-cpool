@@ -4,6 +4,7 @@
 ** File description:
 ** Function that reverses a string
 */
+#include "../../include/my.h"
 
 char *my_revstr(char *str)
 {
