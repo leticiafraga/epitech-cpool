@@ -6,8 +6,9 @@
 */
 
 #include "include/my.h"
+#include "include/languages.h"
 
-int count_letters(char *str, char letter)
+static int count_letters(char *str, char letter)
 {
     int i;
     int cnt;
@@ -26,7 +27,7 @@ int count_letters(char *str, char letter)
     return (cnt);
 }
 
-void put_info(char c, int cnt, int percent)
+static void put_info(char c, int cnt, int percent)
 {
     int module;
 
@@ -47,7 +48,7 @@ void put_info(char c, int cnt, int percent)
     my_putchar('\n');
 }
 
-int cal_freq(int str_len, int cnt)
+static int cal_freq(int str_len, int cnt)
 {
     int percent;
 
@@ -55,7 +56,7 @@ int cal_freq(int str_len, int cnt)
     return (percent);
 }
 
-int cal_str_len(char *str)
+static int cal_str_len(char *str)
 {
     int i;
     int cnt;
@@ -71,24 +72,113 @@ int cal_str_len(char *str)
     return (cnt);
 }
 
-int main(int argc, char **argv)
+int *get_arr(int lang)
+{
+    int *arr;
+
+    switch (lang) {
+    case 0:
+        arr = ENGLISH;
+        break;
+    case 1:
+        arr = FRENCH;
+        break;
+    case 2:
+        arr = GERMAN;
+        break;
+    default:
+        arr = SPANISH;
+        break;
+    }
+    return arr;
+}
+
+static int get_lang_score(char *str, int str_len, int lang)
+{
+    int percent;
+    int *arr;
+    int score = 0;
+    int sum = 0;
+    int cnt = 0;
+    int pos = 0;
+
+    arr = get_arr(lang);
+    for (int i = 'a'; i <= 'z'; i++) {
+        cnt = count_letters(str, i);
+        percent = cal_freq(str_len, cnt);
+        percent = percent * 10;
+        score = percent - arr[pos];
+        if (score < 0)
+            score = score * (-1);
+        sum += score;
+        pos++;
+    }
+    return sum;
+}
+
+static void print_lang(int sm)
+{
+    switch (sm) {
+    case 0:
+        my_putstr("English");
+        break;
+    case 1:
+        my_putstr("French");
+        break;
+    case 2:
+        my_putstr("German");
+        break;
+    default:
+        my_putstr("Spanish");
+        break;
+    }
+}
+
+static void put_lang(int *scores)
+{
+    int sm = 0;
+
+    for (int i = 1; i < 4; i++) {
+        if (scores[i] < scores[sm]) {
+            sm = i;
+        }
+    }
+    my_putstr("=> ");
+    print_lang(sm);
+}
+
+int iterate_str(int argc, char **argv, int str_len)
 {
     int cnt;
-    int str_len;
     int percent;
 
-    if (argc < 3) {
-        return (84);
-    }
-    str_len = cal_str_len(argv[1]);
-    my_strupcase(argv[1]);
     for (int i = 2; i < argc; i++) {
-        if (is_letter(argv[2][0] == 0)) {
+        if (is_letter(argv[i][0] == 0)) {
             return (84);
         }
         cnt = count_letters(argv[1], argv[i][0]);
         percent = cal_freq(str_len, cnt);
         put_info(argv[i][0], cnt, percent);
     }
+    return (0);
+}
+
+int main(int argc, char **argv)
+{
+    int str_len;
+    int scores[4];
+
+    if (argc < 3) {
+        return (84);
+    }
+    str_len = cal_str_len(argv[1]);
+    my_strupcase(argv[1]);
+    if (iterate_str(argc, argv, str_len) == 84) {
+        return (84);
+    }
+    for (int i = 0; i < 4; i++) {
+        scores[i] = get_lang_score(argv[1], str_len, i);
+    }
+    put_lang(scores);
     return (0);
 }
