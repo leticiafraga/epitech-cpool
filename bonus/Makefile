@@ -5,7 +5,7 @@
 ## Makefile for Rush 2
 ##
 
-SRC	=	main.c
+SRC	=	../main.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -14,7 +14,7 @@ NAME	=	rush2
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -I./include
+	gcc -o $(NAME) $(OBJ) -L../lib/my -lmy -I../include
 
 clean:
 	rm -f $(OBJ) *~
