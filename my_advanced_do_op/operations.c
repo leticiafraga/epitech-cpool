@@ -4,15 +4,19 @@
 ** File description:
 ** Operations
 */
-
+#include <unistd.h>
 #include "../include/my.h"
 
 int my_div(int n1, int n2)
 {
+    int n;
+
     if (n2 == 0)
         write(2, "Stop: division by zero", 23);
-    else
-        my_put_nbr(n1 / n2);
+    else {
+        n = n1 / n2;
+        my_put_nbr(n);
+    }
     return 0;
 }
 

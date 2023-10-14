@@ -16,7 +16,7 @@ NAME	=	my_advanced_do-op
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME) $(OBJ) -L../lib/ -lmy
+	gcc -o $(NAME) $(OBJ) -L../lib/ -lmy -I../include
 
 clean:
 	rm -f $(OBJ) *~

@@ -4,9 +4,17 @@
 ** File description:
 ** Program to execute operations
 */
+#include <unistd.h>
 #include "../include/my.h"
-#include "../include/my_opp.h"
 #include "../include/operator.h"
+#include "../include/my_opp.h"
+
+static void put_err(char *str)
+{
+    int len = my_strlen(str);
+
+    write(2, str, len);
+}
 
 static int validate_op(char c, int n1, int n2)
 {
@@ -14,11 +22,18 @@ static int validate_op(char c, int n1, int n2)
 
     while (OPERATORS_FUNCS[i].symbol[0] != '\0') {
         if (c == OPERATORS_FUNCS[i].symbol[0]) {
-            return 1;
+            return i;
         }
         i++;
     }
-    return 0;
+    return -1;
+}
+
+static void put_ops(void)
+{
+    put_err("error: only ");
+    my_usage(0, 0);
+    put_err(" are supported");
 }
 
 int main(int ac, char **av)
@@ -27,7 +42,7 @@ int main(int ac, char **av)
     int n2;
     char *op;
     int len;
-    int found = 0;
+    int found = -1;
 
     if (ac != 4)
         return 84;
@@ -36,11 +51,9 @@ int main(int ac, char **av)
     op = av[2];
     len = my_strlen(op);
     for (int i = 0; i < len; i++) {
-        if (validate_op(op[i], n1, n2))
-            return OPERATORS_FUNCS[i].exec(n1, n2);
+        found = validate_op(op[i], n1, n2);
+        if (found != -1)
+            return OPERATORS_FUNCS[found].exec(n1, n2);
     }
-    write(2, "error: only ", 12);
-    my_usage(n1, n2);
-    write(2, " are supported", 14);
     return 0;
 }

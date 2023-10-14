@@ -6,11 +6,12 @@
 */
 
 #include "../include/my.h"
+#include <unistd.h>
 
 int my_usage(int n1, int n2)
 {
     int i = 0;
 
-    write(2, "[ + - / * % ]", 14);    
+    write(2, "[ + - / * % ]", 14);
     return 0;
 }
