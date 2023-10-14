@@ -55,5 +55,6 @@ int main(int ac, char **av)
         if (found != -1)
             return OPERATORS_FUNCS[found].exec(n1, n2);
     }
+    put_ops();
     return 0;
 }
