@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include "include/mylist.h"
 
-void add_item(linked_list_t **begin,
+static void add_item(linked_list_t **begin,
     linked_list_t *item, linked_list_t *cur, linked_list_t *prev)
 {
     if (prev == 0) {
