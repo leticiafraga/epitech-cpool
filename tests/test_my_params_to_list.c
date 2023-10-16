@@ -7,9 +7,9 @@ int main(int ac, char **av)
     int count = 0;
 
     cur = my_params_to_list(ac, av);
-    printf("%s\n", cur->data);
-
+    my_putstr(cur->data);
+    my_putchar('\n');
     count = my_list_size(cur);
-    printf("%d\n", count);
+    my_put_nbr(count);
     return 0;
 }
