@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2023
+** MY_REV_LIST
+** File description:
+** Revs list
+*/
+
 #include "include/mylist.h"
 
 void my_rev_list(linked_list_t **begin)

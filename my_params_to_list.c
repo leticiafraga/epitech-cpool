@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2023
+** MY_PARAMS_TO_LIST
+** File description:
+** Return params to list
+*/
+
 #include "include/mylist.h"
 #include <stdlib.h>
 

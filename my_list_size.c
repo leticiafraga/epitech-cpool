@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2023
+** MY_LIST_SIZE
+** File description:
+** Returns list size
+*/
+
 #include "include/mylist.h"
 
 int my_list_size(linked_list_t const *begin)
