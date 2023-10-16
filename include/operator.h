@@ -18,5 +18,4 @@ struct operator {
     char *symbol;
     int (*exec) (int n1, int n2);
 };
-
 #endif

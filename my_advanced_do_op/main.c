@@ -9,11 +9,18 @@
 #include "../include/operator.h"
 #include "../include/my_opp.h"
 
-static void put_err(char *str)
+int my_usage(int n1, int n2)
 {
-    int len = my_strlen(str);
+    int i = 0;
 
-    write(2, str, len);
+    put_err("[ ");
+    while (OPERATORS_FUNCS[i].symbol[0] != '\0') {
+        put_err(OPERATORS_FUNCS[i].symbol);
+        put_err(" ");
+        i++;
+    }
+    put_err("]");
+    return 0;
 }
 
 static int validate_op(char *c, int n1, int n2)
