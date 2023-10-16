@@ -19,5 +19,5 @@ void my_rev_list(linked_list_t **begin)
         swap = cur;
         cur = prev;
     }
-    begin = &swap;
+    *begin = swap;
 }
