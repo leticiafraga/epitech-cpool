@@ -4,7 +4,7 @@
 ** File description:
 ** Sorts list
 */
-
+#include <stdlib.h>
 #include "include/mylist.h"
 
 void add_item(linked_list_t **begin,
