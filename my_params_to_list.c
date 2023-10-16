@@ -3,7 +3,6 @@
 
 linked_list_t *my_params_to_list(int ac, char *const *av)
 {
-    int n = 0;
     linked_list_t *cur;
     linked_list_t *prev;
 

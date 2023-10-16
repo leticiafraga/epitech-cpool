@@ -1,4 +1,5 @@
 #include "../include/mylist.h"
+#include "../include/my.h"
 linked_list_t *my_params_to_list(int ac, char *const *av);
 
 int main(int ac, char **av)
