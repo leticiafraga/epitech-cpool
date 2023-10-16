@@ -14,6 +14,7 @@ SRC	=	helpers.c	\
 		my_is_prime.c	\
 		my_putchar.c	\
 		my_put_nbr.c	\
+		my_put_err.c    \
 		my_putstr.c	\
 		my_revstr.c	\
 		my_showmem.c	\
