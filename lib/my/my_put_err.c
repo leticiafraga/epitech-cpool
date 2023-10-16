@@ -11,5 +11,6 @@
 void my_put_err(char *str)
 {
     int len = my_strlen(str);
+
     write(2, str, len);
 }
