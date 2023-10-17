@@ -7,7 +7,24 @@
 
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
 #include "../include/my.h"
+
+void put_err(void)
+{
+    my_put_err(": ");
+    switch (errno) {
+    case 2:
+        my_put_err("No such file or directory");
+        break;
+    case 13:
+        my_put_err("Permission denied");
+        break;
+    default:
+        break;
+    }
+    my_put_err("\n");
+}
 
 void read_files(int ac, char **av)
 {
@@ -21,7 +38,7 @@ void read_files(int ac, char **av)
         if (fd == -1) {
             my_put_err("cat: ");
             my_put_err(av[i]);
-            my_put_err(": No such file or directory\n");
+            put_err();
         }
         size = read(fd, arr, arrsize);
         while (size > 0) {
