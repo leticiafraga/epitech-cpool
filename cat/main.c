@@ -4,7 +4,8 @@
 
 int main(int ac, char **av)
 {
-    char *arr[1000];
+    int arrsize = 30000;
+    char *arr[arrsize + 1];
     int fd = 0;
     int size = 0;
     
@@ -17,8 +18,8 @@ int main(int ac, char **av)
             my_put_err(av[i]);
             my_put_err(": No such file or directory\n");
         }
-        while (size = read(fd, arr, 30) > 0)
-            write(1, arr, 30);
+        while (size = read(fd, arr, arrsize) > 0)
+            write(1, arr, arrsize);
         close(fd);
     }
     return 0;
