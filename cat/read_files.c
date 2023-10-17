@@ -14,13 +14,11 @@ void put_err(void)
 {
     my_put_err(": ");
     switch (errno) {
-    case 2:
-        my_put_err("No such file or directory");
-        break;
     case 13:
         my_put_err("Permission denied");
         break;
     default:
+        my_put_err("No such file or directory");
         break;
     }
     my_put_err("\n");

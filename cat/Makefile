@@ -21,11 +21,11 @@ $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) -L../lib/ -lmy -I../include
 
 tests_compile:
-	gcc -o unit_tests read_files.c ../tests/test.c	\
+	gcc -o ../tests/unit_tests read_files.c ../tests/test.c	\
 	-L../lib/ -lmy -I../include --coverage -lcriterion
 
 tests_run: tests_compile
-	./unit_tests
+	./../tests/unit_tests
 
 clean:
 	rm -f $(OBJ) *~ ../lib/my/*.o
