@@ -3,3 +3,5 @@ a.out
 libmy.a
 *.log
 *.o
+*.gcda
+*.gcno

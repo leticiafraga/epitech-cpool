@@ -28,9 +28,12 @@ tests_run: tests_compile
 	./unit_tests
 
 clean:
-	rm -f $(OBJ) *~
+	rm -f $(OBJ) *~ ../lib/my/*.o
 
 fclean: clean
 	rm -f $(NAME)
+
+tests_fclean:
+	rm -f unit_tests *~ *.gcda *.gcno
 
 re: fclean all
