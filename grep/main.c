@@ -102,6 +102,8 @@ void read_files(int ac, char **av)
 int main(int ac, char **av)
 {
     if (ac == 0) {
+        my_putstr("Usage: grep [OPTION]... PATTERNS [FILE]...\n");
+        my_putstr("Try 'grep --help' for more information.\n");
         return 84;
     }
     if (ac == 2)
