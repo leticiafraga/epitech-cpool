@@ -13,7 +13,7 @@
 int main(int ac, char **av)
 {
     if (ac == 1) {
-        read_input(av[1]);
+        read_input();
         return 0;
     }
     read_files(ac, av);
