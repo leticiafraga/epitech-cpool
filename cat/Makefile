@@ -13,7 +13,7 @@ NAME	=	cat
 
 all: lib $(NAME)
 
-lib: 
+lib:
 	cd ../lib/my && make && cd ../../cat
 
 $(NAME):	$(OBJ)
