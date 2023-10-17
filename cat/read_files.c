@@ -18,7 +18,7 @@ void read_files(int ac, char **av)
 
     for (int i = 1; i < ac; i++) {
         fd = open(av[i], O_RDONLY);
-	if (fd == -1) {
+        if (fd == -1) {
             my_put_err("cat: ");
             my_put_err(av[i]);
             my_put_err(": No such file or directory\n");
