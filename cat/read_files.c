@@ -10,7 +10,7 @@
 #include <errno.h>
 #include "../include/my.h"
 
-void put_err(void)
+static void put_err(void)
 {
     my_put_err(": ");
     switch (errno) {

@@ -6,7 +6,11 @@
 ##
 
 SRC	=	main.c \
-		read_files.c
+		read_files.c \
+		read_input.c
+
+TEST_SRC = 	read_files.c \
+                read_input.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -18,14 +22,14 @@ lib:
 	cd ../lib/my && make && cd ../../cat
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME) $(OBJ) -L../lib/ -lmy -I../include
+	gcc -o $(NAME) $(OBJ) -L../lib/ -lmy -I../include -Wall -Wextra
 
 tests_compile:
-	gcc -o ../tests/unit_tests read_files.c ../tests/test.c	\
+	gcc -o unit_tests $(TEST_SRC) ../tests/test.c	\
 	-L../lib/ -lmy -I../include --coverage -lcriterion
 
 tests_run: tests_compile
-	./../tests/unit_tests
+	./unit_tests
 
 clean:
 	rm -f $(OBJ) *~ ../lib/my/*.o
