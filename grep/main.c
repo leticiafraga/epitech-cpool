@@ -10,6 +10,14 @@
 #include <stdlib.h>
 #include "../include/my.h"
 
+static void put_name(int ac, char *name)
+{
+    if (ac > 3) {
+        my_putstr(name);
+        my_putstr(":");
+    }
+}
+
 static void put_err(int fd, char *str)
 {
     if (fd != -1)
@@ -52,40 +60,41 @@ static char *get_lines(char *arr, int init, int cnt)
     return line;
 }
 
-void find(char *line, char *pattern)
+void find(char *line, int ac, char **av, int i)
 {
-    if (my_strstr(line, pattern)) {
+    if (my_strstr(line, av[1])) {
+        put_name(ac, av[i]);
         my_putstr(line);
         my_putchar('\n');
     }
 }
 
-static void it_lines(char *arr, char *param, int size)
+static void it_lines(int ac, char **av, int i, int fd)
 {
+    char arr[30001];
+    int size = 0;
     int prev = 0;
     int cnt = 0;
     char *line;
 
+    size = read(fd, arr, 30000);
+    arr[size] = '\0';
     while (cnt < size) {
         prev = cnt;
         cnt = get_size(arr, cnt);
         line = get_lines(arr, prev, cnt++);
-        find(line, param);
+        find(line, ac, av, i);
     }
 }
 
 void read_files(int ac, char **av)
 {
-    char arr[30001];
     int fd = 0;
-    int size = 0;
 
     for (int i = 2; i < ac; i++) {
         fd = open(av[i], O_RDONLY);
         put_err(fd, av[i]);
-        size = read(fd, arr, 30000);
-        arr[size] = '\0';
-        it_lines(arr, av[1], size);
+        it_lines(ac, av, i, fd);
     }
 }
 
