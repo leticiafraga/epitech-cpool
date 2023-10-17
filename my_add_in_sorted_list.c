@@ -25,15 +25,19 @@ void my_add_in_sorted_list(linked_list_t **begin,
     linked_list_t *item;
     linked_list_t *cur = *begin;
     linked_list_t *prev = 0;
+    int added = 0;
 
     item = malloc(sizeof(linked_list_t));
     item->data = data;
     while (cur != 0) {
         if (cmp(cur->data, data) > 0) {
+            added = 1;
             add_item(begin, item, cur, prev);
             break;
         }
         prev = cur;
         cur = cur->next;
     }
+    if (added == 0)
+        add_item(begin, item, cur, prev);
 }

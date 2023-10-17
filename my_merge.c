@@ -35,7 +35,6 @@ static void my_add_item_in_sorted_list(linked_list_t **begin,
     }
 }
 
-
 void my_merge(linked_list_t **begin1,
     linked_list_t *begin2, int (*cmp) ())
 {
