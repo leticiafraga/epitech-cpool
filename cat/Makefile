@@ -5,7 +5,8 @@
 ## Makefile 1
 ##
 
-SRC	=	main.c
+SRC	=	main.c \
+		read_files.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -18,6 +19,11 @@ lib:
 
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) -L../lib/ -lmy -I../include
+
+tests_run:
+	gcc $(SRC) ../tests/test.c -L../lib/ -lmy -I../include --coverage -lcriterion
+tests:
+	./unit_tests
 
 clean:
 	rm -f $(OBJ) *~
