@@ -24,15 +24,19 @@ static void my_add_item_in_sorted_list(linked_list_t **begin,
 {
     linked_list_t *cur = *begin;
     linked_list_t *prev = 0;
+    int added = 0;
 
     while (cur != 0) {
         if (cmp(cur->data, item->data) > 0) {
+            added = 1;
             add_item(begin, item, cur, prev);
             break;
         }
         prev = cur;
         cur = cur->next;
     }
+    if (added == 0)
+        add_item(begin, item, cur, prev);
 }
 
 void my_merge(linked_list_t **begin1,
@@ -43,7 +47,7 @@ void my_merge(linked_list_t **begin1,
 
     while (it2 != 0) {
         next = it2->next;
-        my_add_item_in_sorted_list(begin1, it2->data, cmp);
+        my_add_item_in_sorted_list(begin1, it2, cmp);
         it2 = next;
     }
 }
