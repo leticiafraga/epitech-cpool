@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "../include/my.h"
+#include "../include/grep.h"
 
 static void put_name(int ac, char *name)
 {
@@ -60,7 +61,7 @@ static char *get_lines(char *arr, int init, int cnt)
     return line;
 }
 
-void find(char *line, int ac, char **av, int i)
+static void find(char *line, int ac, char **av, int i)
 {
     if (my_strstr(line, av[1])) {
         put_name(ac, av[i]);
@@ -103,6 +104,8 @@ int main(int ac, char **av)
     if (ac == 0) {
         return 84;
     }
+    if (ac == 2)
+        read_input(av[1]);
     read_files(ac, av);
     return 0;
 }

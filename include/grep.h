@@ -8,5 +8,5 @@
 #ifndef CAT_H
     #define CAT_H
 void read_files(int ac, char **av);
-void read_input(void);
+void read_input(char *param);
 #endif

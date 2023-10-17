@@ -6,6 +6,7 @@
 ##
 
 SRC	=	main.c \
+		read_input.c
 
 TEST_SRC = 	read_files.c \
                 read_input.c
