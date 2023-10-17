@@ -10,12 +10,6 @@ void redirect_all_stdout(void)
         cr_redirect_stderr();
 }
 
-int error(void)
-{
-        write(2, "error", 5);
-        return(0);
-}
-
 Test(cat, no_file, .init=redirect_all_stdout)
 {
     char *arr[2];
