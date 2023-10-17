@@ -60,27 +60,32 @@ void find(char *line, char *pattern)
     }
 }
 
+static void it_lines(char *arr, char *param, int size)
+{
+    int prev = 0;
+    int cnt = 0;
+    char *line;
+
+    while (cnt < size) {
+        prev = cnt;
+        cnt = get_size(arr, cnt);
+        line = get_lines(arr, prev, cnt++);
+        find(line, param);
+    }
+}
+
 void read_files(int ac, char **av)
 {
     char arr[30001];
-    char *line;
     int fd = 0;
     int size = 0;
-    int cnt = 0;
-    int prev = 0;
 
     for (int i = 2; i < ac; i++) {
-        cnt = 0;
         fd = open(av[i], O_RDONLY);
         put_err(fd, av[i]);
         size = read(fd, arr, 30000);
         arr[size] = '\0';
-        while (cnt < size) {
-            prev = cnt;
-            cnt = get_size(arr, cnt);
-            line = get_lines(arr, prev, cnt++);
-            find(line, av[1]);
-        }
+        it_lines(arr, av[1], size);
     }
 }
 
