@@ -37,7 +37,7 @@ static void put_err(int fd, char *str)
     my_put_err("\n");
 }
 
-static int get_size(char *arr, int init)
+int get_size(char *arr, int init)
 {
     int cnt = init;
 
@@ -47,7 +47,7 @@ static int get_size(char *arr, int init)
     return cnt;
 }
 
-static char *get_lines(char *arr, int init, int cnt)
+char *get_lines(char *arr, int init, int cnt)
 {
     int j = 0;
     char *line = malloc(sizeof(char) * (cnt - init));
@@ -101,7 +101,7 @@ void read_files(int ac, char **av)
 
 int main(int ac, char **av)
 {
-    if (ac == 0) {
+    if (ac == 1) {
         my_putstr("Usage: grep [OPTION]... PATTERNS [FILE]...\n");
         my_putstr("Try 'grep --help' for more information.\n");
         return 84;
