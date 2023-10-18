@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "../include/my.h"
+#include "../include/grep.h"
 
 static void find(char *param, char *arr, int size)
 {

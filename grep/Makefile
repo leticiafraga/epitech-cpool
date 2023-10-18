@@ -11,7 +11,8 @@ SRC	=	main.c \
 		helpers.c
 
 TEST_SRC = 	read_input.c \
-		read_files.c
+		read_files.c \
+		helpers.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -26,7 +27,7 @@ $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) -L../lib/ -lmy -I../include -Wall -Wextra
 
 tests_compile:
-	gcc -o unit_tests $(TEST_SRC) ../tests/test.c	\
+	gcc -o unit_tests $(TEST_SRC) ../tests/grep_test.c	\
 	-L../lib/ -lmy -I../include --coverage -lcriterion
 
 tests_run: tests_compile
