@@ -16,5 +16,5 @@ typedef struct btree {
 btree_t *btree_create_node(void *item);
 void btree_apply_prefix(btree_t *root, int (*applyf)(void *));
 void btree_apply_infix(btree_t *root, int (*applyf)(void *));
-
+void btree_apply_suffix(btree_t *root, int (*applyf)(void *));
 #endif
