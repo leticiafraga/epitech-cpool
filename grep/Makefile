@@ -6,10 +6,12 @@
 ##
 
 SRC	=	main.c \
-		read_input.c
+		read_input.c \
+		read_files.c \
+		helpers.c
 
-TEST_SRC = 	read_files.c \
-                read_input.c
+TEST_SRC = 	read_input.c \
+		read_files.c
 
 OBJ	=	$(SRC:.c=.o)
 
