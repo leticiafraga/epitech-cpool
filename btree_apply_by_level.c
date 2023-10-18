@@ -10,10 +10,11 @@ static int apply_rec(btree_t *root, int level, int maxlevel,
     void (*applyf)(void *item, int level, int is_first_elem))
 {
     int first = 0;
+
     if (maxlevel < level) {
         maxlevel = level;
         first = 1;
-    }        
+    }
     applyf(root->item, level, first);
     if (root->left != 0)
         maxlevel = apply_rec(root->left, level + 1, maxlevel, applyf);
