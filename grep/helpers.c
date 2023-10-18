@@ -27,7 +27,7 @@ char *get_lines(char *arr, int init, int cnt)
     char *line = malloc(sizeof(char) * (cnt - init));
 
     while (init < cnt) {
-	line[j] = arr[init];
+        line[j] = arr[init];
         init++;
         j++;
     }

@@ -72,5 +72,6 @@ void read_files(int ac, char **av)
         fd = open(av[i], O_RDONLY);
         put_err(fd, av[i]);
         it_lines(ac, av, i, fd);
+        close(fd);
     }
 }
