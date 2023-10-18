@@ -14,5 +14,4 @@ void btree_apply_suffix(btree_t *root, int (*applyf)(void *))
         btree_apply_prefix(root->right, applyf);
     if (root->item != 0)
         applyf(root->item);
-
 }
