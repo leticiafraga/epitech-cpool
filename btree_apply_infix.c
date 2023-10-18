@@ -4,6 +4,7 @@
 ** File description:
 ** Applies infix
 */
+#include "include/btree.h"
 
 void btree_apply_infix(btree_t *root, int (*applyf)(void *))
 {
