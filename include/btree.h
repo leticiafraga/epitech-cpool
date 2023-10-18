@@ -12,4 +12,7 @@ typedef struct btree {
     struct btree *right;
     void *item;
 } btree_t;
+
+btree_t *btree_create_node(void *item);
+void btree_apply_prefix(btree_t *root, int (*applyf)(void *));
 #endif

@@ -5,7 +5,8 @@
 ## Makefile 1
 ##
 
-SRC	=	btree_create_node.c
+SRC	=	btree_create_node.c \
+		btree_apply_prefix.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -16,11 +17,11 @@ LIBTREE = 	libbtree.a
 all: $(LIBTREE)
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME) $(OBJ) \
+	gcc -o $(NAME) $(OBJ) main.c \
 	-I../include -Wall -Wextra -L. -lbtree
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) *~
 
 fclean: clean
 	rm -f $(LIBTREE)
