@@ -9,9 +9,9 @@
 void btree_apply_infix(btree_t *root, int (*applyf)(void *))
 {
     if (root->left != 0)
-        btree_apply_prefix(root->left, applyf);
-    if (root->item != 0)
-        applyf(root->item);
+        btree_apply_infix(root->left, applyf);
+            if (root->item != 0)
+                applyf(root->item);
     if (root->right != 0)
-        btree_apply_prefix(root->right, applyf);
+        btree_apply_infix(root->right, applyf);
 }

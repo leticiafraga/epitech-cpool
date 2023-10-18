@@ -22,7 +22,7 @@ LIBTREE = 	libbtree.a
 
 all: $(LIBTREE)
 
-$(NAME):	$(OBJ)
+$(NAME):	all $(OBJ)
 	gcc -o $(NAME) $(OBJ) tests/main.c \
 	-I../include -Wall -Wextra -L. -lbtree
 
