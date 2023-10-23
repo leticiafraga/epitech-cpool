@@ -28,9 +28,9 @@ Test (mini_printf, chars, .init = cr_redirect_stdout)
 
 Test (mini_printf, percent, .init = cr_redirect_stdout)
 {
-    int cnt = mini_printf ("%d%%", 100) ;
-    cr_assert_stdout_eq_str("100%");
-    cr_assert_eq(cnt, 4);
+    int cnt = mini_printf ("%d%%", -100) ;
+    cr_assert_stdout_eq_str("-100%");
+    cr_assert_eq(cnt, 5);
 }
 
 Test (mini_printf, last_one, .init = cr_redirect_stdout)
