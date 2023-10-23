@@ -46,3 +46,16 @@ Test (mini_printf, last_one, .init = cr_redirect_stdout)
     cr_assert_stdout_eq_str(res);
     cr_assert_eq(cnt, my_strlen(res));
 }
+
+Test (mini_printf, no_equiv_flag, .init = cr_redirect_stdout)
+{
+    int cnt = mini_printf ("%d%%%r", 1);
+    cr_assert_stdout_eq_str("1%%r");
+    cr_assert_eq(cnt, 4);
+}
+
+Test (mini_printf, error, .init = cr_redirect_stdout)
+{
+    int cnt = mini_printf ("%%%");
+    cr_assert_eq(cnt, -1);
+}
