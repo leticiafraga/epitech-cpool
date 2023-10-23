@@ -16,13 +16,13 @@ NAME	=	unit_tests
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME) $(SRC) tests/test.c -I../include \
-	-lcriterion --coverage && ./$(NAME)
+	cd .. && gcc -o $(NAME) $(SRC) bonus/tests/test.c -I../include \
+	-lcriterion --coverage && ./$(NAME) && cd bonus
 
 clean:
-	rm -f $(OBJ) *~ *.gcda *.gcno
+	cd .. && rm -f $(OBJ) *~ *.gcda *.gcno && cd bonus
 
 fclean: clean
-	rm -f $(NAME)
+	cd .. && rm -f $(NAME) && cd bonus
 
 re: fclean all

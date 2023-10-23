@@ -1,6 +1,6 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "../include/my.h"
+#include "../../include/my.h"
 
 int mini_printf(const char *format, ...);
 
