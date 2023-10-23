@@ -13,19 +13,16 @@ int get_format(const char *format, va_list args)
     switch (*format) {
     case '%':
         my_putchar('%');
-        break;
+        return 1;
     case 'd':
-        my_put_nbr(va_arg(args, int));
-        break;
+        return my_put_nbr(va_arg(args, int));
     case 'i':
-        my_put_nbr(va_arg(args, int));
-        break;
+        return my_put_nbr(va_arg(args, int));
     case 's':
-        my_putstr(va_arg(args, char *));
-        break;
+        return my_putstr(va_arg(args, char *));
     case 'c':
         my_putchar(va_arg(args, int));
-        break;
+        return 1;
     }
     return 0;
 }
@@ -33,15 +30,19 @@ int get_format(const char *format, va_list args)
 int mini_printf(const char *format, ...)
 {
     va_list args;
+    int cnt = 0;
 
     va_start(args, format);
     while (*format != '\0') {
         if (*format == '%') {
             format++;
-            get_format(format, args);
-        } else
+            cnt += get_format(format, args);
+        } else {
             my_putchar(*format);
+            cnt++;
+        }
         format++;
     }
     va_end(args);
+    return cnt;
 }
