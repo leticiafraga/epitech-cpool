@@ -16,7 +16,7 @@ static int check_first_line(char *buffer, char hori_logo)
         i ++;
     if (buffer[i + 1] != corner || buffer[i + 2] != '\n')
         return -1;
-    return i + 1;
+    return i + 2;
 }
 
 static int check_vertical(char *buffer)
