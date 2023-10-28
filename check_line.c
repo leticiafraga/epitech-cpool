@@ -36,7 +36,7 @@ int check_last_line(char *buffer, rectangle *rec, int w_size)
         return -1;
     if (w_size != i + 1)
         return -1;
-    return 0x;
+    return 0;
 }
 
 static int it_line(int width, char *line)
