@@ -20,7 +20,7 @@ static int square2(char *buffer)
     height = check_vertical(buffer, width, '|');
     if (height < 0)
         return -1;
-    my_putstr("[rush 1-2] ");
+    my_putstr("[rush1-2] ");
     put_dimensions(width, height);
     return 0;
 }
