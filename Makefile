@@ -5,7 +5,8 @@
 ## my first make file
 ##
 
-SRC     =	main.c
+SRC     =	main.c	\
+		rush3.c
 
 TEST	=	tests/unit_tests.c
 
