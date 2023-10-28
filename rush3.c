@@ -12,9 +12,29 @@ static int check_first_line(char *buffer)
 
 }
 
-static int check_vertical(char *buffer)
+static int check_vertical(char *buffer, int width)
 {
+    char *it = buffer;
+    int lines = 0;
+    char *line = 0;
+    
 
+    while (*it != '\0') {
+        if (*it == '\n')
+            lines++;
+        it++;
+    }
+    for (int i = 1; i < lines - 1; i++) {
+        line = &buffer[(width + 1) * i];
+
+        if (line[0] != '|' || line[width - 1] != '|')
+            return -1;
+        for (int j = 1; j < width - 1; j ++) {
+            if (line[j] != ' ')
+                return -1;
+        }
+    }
+    return lines;
 }
 
 static int square1(char *buffer)
