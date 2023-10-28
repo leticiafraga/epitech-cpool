@@ -19,8 +19,9 @@ static int check_body_line(char *buffer, char hori_logo)
         return -1;
     return i;
 }
-    
-int check_first_line(char *buffer, char hori_logo, char r_corner, int is_it_square1)
+
+int check_first_line(char *buffer, char hori_logo, char r_corner,
+    int is_it_square1)
 {
     int i = 0;
 
@@ -35,7 +36,8 @@ int check_first_line(char *buffer, char hori_logo, char r_corner, int is_it_squa
     return i + 1;
 }
 
-int check_last_line(char *buffer, rectangle *rec, int w_size, int is_it_square1)
+int check_last_line(char *buffer, rectangle *rec, int w_size,
+    int is_it_square1)
 {
     int i = 0;
 
