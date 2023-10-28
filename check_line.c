@@ -9,10 +9,23 @@
 #include "include/struct.h"
 #include "include/rush3.h"
 
-int check_first_line(char *buffer, char hori_logo, char r_corner)
+static int check_body_line(char *buffer, char hori_logo)
 {
     int i = 0;
 
+    while (buffer[i] == hori_logo)
+        i++;
+    if (buffer[i] != '\n')
+        return -1;
+    return i + 1;
+}
+    
+int check_first_line(char *buffer, char hori_logo, char r_corner, int is_it_square1)
+{
+    int i = 0;
+
+    if (buffer[i] == hori_logo && is_it_square1 != 1)
+        return check_body_line(buffer, hori_logo);
     if (buffer[i + 1] == hori_logo || buffer[i + 1] == r_corner)
         i = 1;
     while (buffer[i] == hori_logo)
@@ -22,10 +35,12 @@ int check_first_line(char *buffer, char hori_logo, char r_corner)
     return i + 1;
 }
 
-int check_last_line(char *buffer, rectangle *rec, int w_size)
+int check_last_line(char *buffer, rectangle *rec, int w_size, int is_it_square1)
 {
     int i = 0;
 
+    if (buffer[i] == rec->h_body && is_it_square1 != 1)
+        return check_body_line(buffer, rec->h_body);
     if (buffer[i] != rec->bl_corner)
         return -1;
     if (buffer[i + 1] == rec->h_body || buffer[i + 1] == rec->br_corner)
