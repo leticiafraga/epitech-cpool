@@ -18,4 +18,5 @@ void put_dimensions(int w, int h);
 rectangle *init_rec_1(void);
 int rectangle1(char *buffer);
 int rectangle2(char *buffer);
+int not_found(void);
 #endif
