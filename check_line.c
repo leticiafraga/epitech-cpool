@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "include/my.h"
 #include "include/struct.h"
+#include "include/rush3.h"
 
 int check_first_line(char *buffer, char hori_logo, char r_corner)
 {

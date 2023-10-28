@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include "include/my.h"
 #include "include/struct.h"
+#include "include/rush3.h"
 
 void put_dimensions(int w, int h)
 {
