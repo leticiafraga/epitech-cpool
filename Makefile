@@ -8,7 +8,7 @@
 SRC     =	main.c	\
 		rush3.c
 
-TEST	=	tests/unit_tests.c
+TEST	=	tests/test.c
 
 CRFLAGS	=	-I $(LIB) --coverage -lcriterion
 
@@ -30,8 +30,8 @@ lib:
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -I./include/
 
-tests_run:
-	gcc $(SRC) $(TEST) $(CRFLAGS)
+tests_run: lib
+	gcc rush3.c $(TEST) $(CRFLAGS) -L./lib/my -lmy
 	./a.out
 
 clean:
