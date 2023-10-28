@@ -6,13 +6,13 @@
 ##
 
 SRC     =	main.c	\
-<<<<<<< Updated upstream
 		rectangle1.c \
-		rush3.c
-=======
 		rush3.c	\
 		check_line.c
->>>>>>> Stashed changes
+
+TEST_SRC= 	rectangle1.c \
+		rush3.c \
+		check_line.c
 
 TEST	=	tests/test.c \
 		tests/rush1_2_test.c
@@ -38,7 +38,7 @@ $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -I./include/
 
 tests_run: lib
-	gcc rush3.c $(TEST) $(CRFLAGS) -L./lib/my -lmy
+	gcc $(TEST_SRC) $(TEST) $(CRFLAGS) -L./lib/my -lmy
 	./a.out
 
 clean:
