@@ -17,6 +17,12 @@ void put_dimensions(int w, int h)
     my_putchar('\n');
 }
 
+int not_found(void)
+{
+    my_putstr("none\n");
+    return -1;
+}
+
 rectangle *init_rec_1(void)
 {
     rectangle *rec = malloc(sizeof(rectangle));
@@ -30,7 +36,7 @@ rectangle *init_rec_1(void)
     return rec;
 }
 
- int rectangle1(char *buffer)
+int rectangle1(char *buffer)
 {
     int width = 0;
     int height = 0;
@@ -39,7 +45,7 @@ rectangle *init_rec_1(void)
     rec = init_rec_1();
     width = check_first_line(buffer, rec->h_body, rec->tr_corner);
     if (width < 0)
-        return -1;
+        return not_found();
     height = check_vertical(buffer, width, rec->v_body);
     if (height < 0)
         return -1;

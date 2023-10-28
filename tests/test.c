@@ -32,3 +32,9 @@ Test (rush3, test_3_1, .init=cr_redirect_stdout)
     rush3("o-o\n");
     cr_assert_stdout_eq_str("[rush-1-1] 3 1\n");
 }
+
+Test(rush3, test_none, .init=cr_redirect_stdout)
+{
+    rush3("o-oo\n");
+    cr_assert_stdout_eq_str("none\n");
+}

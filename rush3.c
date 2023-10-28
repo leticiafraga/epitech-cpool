@@ -48,7 +48,7 @@ int rush3(char *buffer)
         other_squares(buffer);
         break;
     default:
-        my_putstr("none");
+        my_putstr("none\n");
     }
     return 0;
 }
