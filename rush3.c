@@ -9,22 +9,6 @@
 #include "include/struct.h"
 #include "include/rush3.h"
 
-static int rectangle2(char *buffer)
-{
-    int width = 0;
-    int height = 0;
-
-    width = check_first_line(buffer, '*', '\\');
-    if (width < 0)
-        return width;
-    height = check_vertical(buffer, width, '|');
-    if (height < 0)
-        return -1;
-    my_putstr("[rush1-2] ");
-    put_dimensions(width, height);
-    return 0;
-}
-
 static int other_squares(char *buffer)
 {
 }

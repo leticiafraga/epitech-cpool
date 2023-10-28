@@ -7,10 +7,12 @@
 
 SRC     =	main.c	\
 		rectangle1.c \
+		rectangle2.c \
 		rush3.c	\
 		check_line.c
 
 TEST_SRC= 	rectangle1.c \
+		rectangle2.c \
 		rush3.c \
 		check_line.c
 
