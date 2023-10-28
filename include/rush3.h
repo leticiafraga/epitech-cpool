@@ -11,8 +11,10 @@
     #define RUSH3_H
 
 int rush3(char *buffer);
-int check_first_line(char *buffer, char hori_logo, char r_corner);
-int check_last_line(char *buffer, rectangle *rec, int w_size);
+int check_first_line(char *buffer, char hori_logo, char r_corner,
+    int is_is_square1);
+int check_last_line(char *buffer, rectangle *rec, int w_size,
+    int is_it_square1);
 int check_vertical(char *buffer, int width, char body);
 void put_dimensions(int w, int h);
 rectangle *init_rec_1(void);

@@ -29,14 +29,14 @@ int rectangle2(char *buffer)
     rectangle *rec;
 
     rec = init_rec_2();
-    width = check_first_line(buffer, '*', '\\');
+    width = check_first_line(buffer, '*', '\\', 0);
     if (width < 0)
         return not_found();
     height = check_vertical(buffer, width, '*');
     if (height < 0)
         return not_found();
     buffer += (width + 1) * (height - 1);
-    if (check_last_line(buffer, rec, width) < 0)
+    if (check_last_line(buffer, rec, width, 0) < 0)
         return not_found();
     my_putstr("[rush1-2] ");
     put_dimensions(width, height);
