@@ -7,14 +7,7 @@
 #include <stdlib.h>
 #include "include/my.h"
 #include "include/struct.h"
-
-static void put_dimensions(int w, int h)
-{
-    my_put_nbr(w);
-    my_putchar(' ');
-    my_put_nbr(h);
-    my_putchar('\n');
-}
+#include "include/rush3.h"
 
 static int square2(char *buffer)
 {
