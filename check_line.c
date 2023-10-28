@@ -35,10 +35,12 @@ int check_first_line(char *buffer, char hori_logo, char r_corner, int is_it_squa
     return i + 1;
 }
 
-int check_last_line(char *buffer, rectangle *rec, int w_size)
+int check_last_line(char *buffer, rectangle *rec, int w_size, int is_it_square1)
 {
     int i = 0;
 
+    if (buffer[i] == hori_logo && is_it_square1 != 1)
+        return check_body_line(buffer, hori_logo);
     if (buffer[i] != rec->bl_corner)
         return -1;
     if (buffer[i + 1] == rec->h_body || buffer[i + 1] == rec->br_corner)
