@@ -4,6 +4,7 @@
 **/*.tgz
 **/*.txt
 **/*.log
+**/bin/*
 
 **/*~
 **/*#
@@ -11,3 +12,5 @@
 unit_tests
 *.gcda
 *.gcno
+
+rush3
