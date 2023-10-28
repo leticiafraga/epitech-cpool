@@ -22,7 +22,7 @@ int check_first_line(char *buffer, char hori_logo, char r_corner)
     return i + 1;
 }
 
-int check_last_line(char *buffer, rectangle *rec)
+int check_last_line(char *buffer, rectangle *rec, int w_size)
 {
     int i = 0;
     
@@ -34,7 +34,9 @@ int check_last_line(char *buffer, rectangle *rec)
         i++;
     if (buffer[i] != rec->br_corner || buffer[i + 1] != '\n')
         return -1;
-    return i + 1;
+    if (w_size != i + 1)
+        return -1;
+    return 0x;
 }
 
 static int it_line(int width, char *line)

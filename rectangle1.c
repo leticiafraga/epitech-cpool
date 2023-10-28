@@ -44,7 +44,7 @@ rectangle *init_rec_1(void)
     if (height < 0)
         return -1;
     buffer += (width + 1) * (height - 1);
-    if (check_last_line(buffer, rec) < 0)
+    if (check_last_line(buffer, rec, width) < 0)
       return -1;
     my_putstr("[rush-1-1] ");
     put_dimensions(width, height);
