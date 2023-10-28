@@ -1,11 +1,12 @@
 **/*.out
 **/*.o
 **/*.a
+**/*.tgz
+**/*.txt
+**/*.log
 
 **/*~
 **/*#
-
-coding-style-reports.log
 
 unit_tests
 *.gcda
