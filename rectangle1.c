@@ -23,7 +23,7 @@ int not_found(void)
     return -1;
 }
 
-rectangle *init_rec_1(void)
+static rectangle *init_rec_1(void)
 {
     rectangle *rec = malloc(sizeof(rectangle));
 
