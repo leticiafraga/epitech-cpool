@@ -36,10 +36,14 @@ static int check_last_line(char *buffer, rectangle *rec)
     return i + 1;
 }
 
-static int it_lines(int width, char body)
+static int it_line(int width, char *line)
 {
+    for (int j = 1; j < width - 1; j++) {
+        if (line[j] != ' ')
+            return -1;
+    }
+    return 1;
 }
-
 
 static int check_vertical(char *buffer, int width, char body)
 {
@@ -56,10 +60,8 @@ static int check_vertical(char *buffer, int width, char body)
         line = &buffer[(width + 1) * i];
         if (line[0] != body || line[width - 1] != body)
             return -1;
-        for (int j = 1; j < width - 1; j ++) {
-            if (line[j] != ' ')
-                return -1;
-        }
+        if (it_line(width, line) == -1)
+            return -1;
     }
     return lines;
 }
