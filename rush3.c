@@ -4,7 +4,7 @@
 ** File description:
 ** Define what is the rush function called
 */
-
+#include <stdlib.h>
 #include "include/my.h"
 #include "include/struct.h"
 
@@ -24,10 +24,11 @@ static int check_first_line(char *buffer, char hori_logo, char r_corner)
 static int check_last_line(char *buffer, rectangle *rec)
 {
     int i = 0;
-
+    
     if (buffer[i] != rec->bl_corner)
         return -1;
-    i++;
+    if (buffer[i + 1] == rec->h_body || buffer[i + 1] == rec->br_corner)
+        i = 1;
     while (buffer[i] == rec->h_body)
         i++;
     if (buffer[i] != rec->br_corner || buffer[i + 1] != '\n')
@@ -66,17 +67,36 @@ static void put_dimensions(int w, int h)
     my_putchar('\n');
 }
 
+rectangle *init_rec_1(void)
+{
+    rectangle *rec = malloc(sizeof(rectangle));
+
+    rec->tl_corner = 'o';
+    rec->tr_corner = 'o';
+    rec->bl_corner = 'o';
+    rec->br_corner = 'o';
+    rec->h_body = '-';
+    rec->v_body = '|';
+    return rec;
+}
+
 static int square1(char *buffer)
 {
     int width = 0;
     int height = 0;
+    rectangle *rec;
 
-    width = check_first_line(buffer, '-', 'o');
+    rec = init_rec_1();
+    width = check_first_line(buffer, rec->h_body, rec->tr_corner);
     if (width < 0)
         return -1;
-    height = check_vertical(buffer, width, '|');
+    height = check_vertical(buffer, width, rec->v_body);
     if (height < 0)
         return -1;
+    buffer += (width + 1) * (height - 1);
+    my_putchar(*buffer);
+    //if (check_last_line(buffer, rec) < 0)
+    //  return -1;
     my_putstr("[rush-1-1] ");
     put_dimensions(width, height);
 }
