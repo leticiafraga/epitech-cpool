@@ -6,9 +6,11 @@
 ##
 
 SRC     =	main.c	\
+		rectangle1.c \
 		rush3.c
 
-TEST	=	tests/test.c
+TEST	=	tests/test.c \
+		tests/rush1_2_test.c
 
 CRFLAGS	=	-I $(LIB) --coverage -lcriterion
 
