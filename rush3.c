@@ -40,7 +40,6 @@ static int check_vertical(char *buffer, int width, char body)
     char *it = buffer;
     int lines = 0;
     char *line = 0;
-    
 
     while (*it != '\0') {
         if (*it == '\n')
@@ -49,7 +48,6 @@ static int check_vertical(char *buffer, int width, char body)
     }
     for (int i = 1; i < lines - 1; i++) {
         line = &buffer[(width + 1) * i];
-
         if (line[0] != body || line[width - 1] != body)
             return -1;
         for (int j = 1; j < width - 1; j ++) {
@@ -96,7 +94,7 @@ static int square2(char *buffer)
         return -1;
     my_putstr("[rush 1-2] ");
     put_dimensions(width, height);
-    
+    return 0;
 }
 
 static int other_squares(char *buffer)
@@ -112,8 +110,6 @@ int rush3(char *buffer)
         square1(buffer);
         break;
     case '/':
-        square2(buffer);
-        break;
     case '*':
         square2(buffer);
         break;
@@ -125,6 +121,6 @@ int rush3(char *buffer)
         break;
     default:
         my_putstr("none");
-        return 0;
     }
+    return 0;
 }
