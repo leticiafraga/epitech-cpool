@@ -11,12 +11,12 @@ static int check_first_line(char *buffer, char hori_logo)
 {
     int i = 1;
     char corner = buffer[0];
-    
+
     while (buffer[i] == hori_logo)
         i ++;
-    if (buffer[i + 1] != corner || buffer[i + 2] != '\n')
+    if (buffer[i] != corner || buffer[i + 1] != '\n')
         return -1;
-    return i + 2;
+    return i + 1;
 }
 
 static int check_vertical(char *buffer, int width)
