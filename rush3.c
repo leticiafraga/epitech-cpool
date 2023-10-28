@@ -25,7 +25,7 @@ int rush3(char *buffer)
         other_recs(buffer);
         break;
     case 'B':
-        other_recs(buffer);
+        other_recs_same(buffer);
         break;
     default:
         my_putstr("none\n");

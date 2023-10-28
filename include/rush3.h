@@ -21,5 +21,6 @@ rectangle *init_rec_1(void);
 int rectangle1(char *buffer);
 int rectangle2(char *buffer);
 int other_recs(char *buffer);
+int other_recs_same(char *buffer);
 int not_found(void);
 #endif
