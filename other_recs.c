@@ -9,12 +9,6 @@
 #include "include/struct.h"
 #include "include/rush3.h"
 
-static int put_all(int w, int h)
-{
-    my_putstr("[rush1-3] 1 1 || [rush1-4] 1 1 || [rush1-5] 1 1\n");
-    return 0;
-}
-
 static rectangle *init_rec(void)
 {
     rectangle *rec = malloc(sizeof(rectangle));
@@ -41,9 +35,7 @@ int other_recs(char *buffer)
     rectangle *rec = init_rec();
 
     rec->tr_corner = validate_tr_corner(buffer);
-    if (rec->tr_corner == 'B')
-        return put_all(1, 1);
-    if (rec->tr_corner < 'A' || rec->tr_corner > 'C')
+    if (rec->tr_corner != 'A' && rec->tr_corner != 'C')
         return not_found();
     width = check_first_line(buffer, rec->h_body, rec->tr_corner, 0);
     if (width < 0)
