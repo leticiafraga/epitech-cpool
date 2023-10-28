@@ -45,7 +45,7 @@ int other_recs(char *buffer)
         return put_all(1, 1);
     if (rec->tr_corner < 'A' || rec->tr_corner > 'C')
         return not_found();
-    width = check_first_line(buffer, rec->h_body, rec->tr_corner);
+    width = check_first_line(buffer, rec->h_body, rec->tr_corner, 0);
     if (width < 0)
         return not_found();
     height = check_vertical(buffer, width, rec->v_body);
