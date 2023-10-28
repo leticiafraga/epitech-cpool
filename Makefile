@@ -8,16 +8,19 @@
 SRC     =	main.c	\
 		rectangle1.c \
 		rectangle2.c \
+		other_recs.c \
 		rush3.c	\
 		check_line.c
 
 TEST_SRC= 	rectangle1.c \
 		rectangle2.c \
+		other_recs.c \
 		rush3.c \
 		check_line.c
 
-TEST	=	tests/test.c \
-		tests/rush1_2_test.c
+TEST	=	tests/rush1_1_test.c \
+		tests/rush1_2_test.c \
+		tests/rush1_1_none_test.c
 
 CRFLAGS	=	-I $(LIB) --coverage -lcriterion
 
