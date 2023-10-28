@@ -20,10 +20,12 @@ LIB	=	/include/
 
 LIBNAME	=	libmy.a
 
+.PHONY: all lib
+
 all:	lib $(NAME)
 
 lib:
-	cd ./lib/my && make && cd ../../
+	cd lib/my && make && cd ../..
 
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -I./include/
@@ -36,6 +38,6 @@ clean:
 	rm -f $(OBJ) *~ ./lib/my/*.o
 
 fclean:	clean
-	rm -f $(NAME)
+	rm -f $(NAME) lib/my/$(LIBNAME)
 
 re:     fclean all
