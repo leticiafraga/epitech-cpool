@@ -9,7 +9,7 @@
 #include "include/struct.h"
 #include "include/rush3.h"
 
-static int square2(char *buffer)
+static int rectangle2(char *buffer)
 {
     int width = 0;
     int height = 0;
@@ -39,7 +39,7 @@ int rush3(char *buffer)
         break;
     case '/':
     case '*':
-        square2(buffer);
+        rectangle2(buffer);
         break;
     case 'A':
         other_squares(buffer);
