@@ -46,8 +46,19 @@ static int check_vertical(char *buffer, int width)
 
 static int square1(char *buffer)
 {
-    check_first_line(buffer);
-    check_vertical(buffer);
+    int width = 0;
+    int height = 0;
+
+    width = check_first_line(buffer, '-');
+    if (width < 0)
+        return -1;
+    height = check_vertical(buffer, width);
+    if (height < 0)
+        return -1;
+    my_put_nbr(width);
+    my_putchar(' ');
+    my_put_nbr(height);
+    my_putchar('\n');
 }
 
 int rush3(char *buffer)
