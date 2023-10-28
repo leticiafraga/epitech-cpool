@@ -9,6 +9,7 @@ SRC     =	main.c	\
 		rectangle1.c \
 		rectangle2.c \
 		rectangle3.c \
+		rectangle4_5.c \
 		other_recs.c \
 		other_recs_same.c \
 		rush3.c	\
@@ -17,6 +18,7 @@ SRC     =	main.c	\
 TEST_SRC= 	rectangle1.c \
 		rectangle2.c \
 		rectangle3.c \
+		rectangle4_5.c \
 		other_recs.c \
 		other_recs_same.c \
 		rush3.c \

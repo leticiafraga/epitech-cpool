@@ -37,12 +37,7 @@ int other_recs(char *buffer)
     rec->tr_corner = validate_tr_corner(buffer);
     if (rec->tr_corner == 'A')
         return rectangle3(buffer);
-    if (rec->tr_corner != 'A' && rec->tr_corner != 'C')
+    if (rec->tr_corner != 'C')
         return not_found();
-    width = check_first_line(buffer, rec->h_body, rec->tr_corner, 0);
-    if (width < 0)
-        return not_found();
-    height = check_vertical(buffer, width, rec->v_body);
-    if (height < 0)
-        return not_found();
+    return rectangle4_5(buffer);
 }
