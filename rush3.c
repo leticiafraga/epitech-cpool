@@ -15,8 +15,22 @@ static int check_first_line(char *buffer, char hori_logo, char r_corner)
     if (buffer[i + 1] == hori_logo || buffer[i + 1] == r_corner)
         i = 1;
     while (buffer[i] == hori_logo)
-        i ++;
+        i++;
     if (buffer[i] != r_corner || buffer[i + 1] != '\n')
+        return -1;
+    return i + 1;
+}
+
+static int check_last_line(char *buffer, rectangle *rec)
+{
+    int i = 0;
+
+    if (buffer[i] != rec->bl_corner)
+        return -1;
+    i++;
+    while (buffer[i] == rec->h_body)
+        i++;
+    if (buffer[i] != rec->br_corner || buffer[i + 1] != '\n')
         return -1;
     return i + 1;
 }
