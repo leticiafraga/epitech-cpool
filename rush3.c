@@ -9,10 +9,6 @@
 #include "include/struct.h"
 #include "include/rush3.h"
 
-static int other_squares(char *buffer)
-{
-}
-
 int rush3(char *buffer)
 {
     char logo = buffer[0];
@@ -26,10 +22,10 @@ int rush3(char *buffer)
         rectangle2(buffer);
         break;
     case 'A':
-        other_squares(buffer);
+        other_recs(buffer);
         break;
     case 'B':
-        other_squares(buffer);
+        other_recs(buffer);
         break;
     default:
         my_putstr("none\n");
