@@ -35,6 +35,7 @@ tests_run:
 	./a.out
 
 clean:
+	cd lib/my && make clean && cd ../..
 	rm -f $(OBJ) *~ ./lib/my/*.o
 
 fclean:	clean
