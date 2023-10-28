@@ -21,7 +21,7 @@ static int check_first_line(char *buffer, char hori_logo, char r_corner)
     return i + 1;
 }
 
-static int check_vertical(char *buffer, int width)
+static int check_vertical(char *buffer, int width, char body)
 {
     char *it = buffer;
     int lines = 0;
@@ -36,7 +36,7 @@ static int check_vertical(char *buffer, int width)
     for (int i = 1; i < lines - 1; i++) {
         line = &buffer[(width + 1) * i];
 
-        if (line[0] != '|' || line[width - 1] != '|')
+        if (line[0] != body || line[width - 1] != body)
             return -1;
         for (int j = 1; j < width - 1; j ++) {
             if (line[j] != ' ')
@@ -54,13 +54,22 @@ static int square1(char *buffer)
     width = check_first_line(buffer, '-', 'o');
     if (width < 0)
         return -1;
-    height = check_vertical(buffer, width);
+    height = check_vertical(buffer, width, '|');
     if (height < 0)
         return -1;
+    my_putstr("[rush-1-1] ");
     my_put_nbr(width);
     my_putchar(' ');
     my_put_nbr(height);
     my_putchar('\n');
+}
+
+static int square2(char *buffer)
+{
+}
+
+static int other_squares(char *buffer)
+{
 }
 
 int rush3(char *buffer)
@@ -72,16 +81,16 @@ int rush3(char *buffer)
         square1(buffer);
         break;
     case '/':
-        //func_rush2();
+        square2(buffer);
         break;
     case '*':
-        //func_rush3();
+        square2(buffer);
         break;
     case 'A':
-        //func_rush4();
+        other_squares(buffer);
         break;
     case 'B':
-        //func_rush5();
+        other_squares(buffer);
         break;
     default:
         my_putstr("none");
