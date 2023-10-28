@@ -17,7 +17,7 @@ static int check_body_line(char *buffer, char hori_logo)
         i++;
     if (buffer[i] != '\n')
         return -1;
-    return i + 1;
+    return i;
 }
     
 int check_first_line(char *buffer, char hori_logo, char r_corner, int is_it_square1)
