@@ -48,10 +48,10 @@ int rectangle1(char *buffer)
         return not_found();
     height = check_vertical(buffer, width, rec->v_body);
     if (height < 0)
-        return -1;
+        return not_found();
     buffer += (width + 1) * (height - 1);
     if (check_last_line(buffer, rec, width) < 0)
-      return -1;
+        return not_found();
     my_putstr("[rush-1-1] ");
     put_dimensions(width, height);
 }
