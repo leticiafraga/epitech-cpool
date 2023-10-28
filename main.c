@@ -1,5 +1,5 @@
 #include <unistd.h>
-#include "rush3.h"
+#include "include/rush3.h"
 int main()
 {
     char buff[BUFF_SIZE + 1];

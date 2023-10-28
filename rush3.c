@@ -46,6 +46,14 @@ static int check_vertical(char *buffer, int width, char body)
     return lines;
 }
 
+static void put_dimensions(int w, int h)
+{
+    my_put_nbr(w);
+    my_putchar(' ');
+    my_put_nbr(h);
+    my_putchar('\n');
+}
+
 static int square1(char *buffer)
 {
     int width = 0;
@@ -58,14 +66,23 @@ static int square1(char *buffer)
     if (height < 0)
         return -1;
     my_putstr("[rush-1-1] ");
-    my_put_nbr(width);
-    my_putchar(' ');
-    my_put_nbr(height);
-    my_putchar('\n');
+    put_dimensions(width, height);
 }
 
 static int square2(char *buffer)
 {
+    int width = 0;
+    int height = 0;
+
+    width = check_first_line(buffer, '*', '\\');
+    if (width < 0)
+        return width;
+    height = check_vertical(buffer, width, '|');
+    if (height < 0)
+        return -1;
+    my_putstr("[rush 1-2] ");
+    put_dimensions(width, height);
+    
 }
 
 static int other_squares(char *buffer)

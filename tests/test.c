@@ -1,6 +1,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 #include "../include/my.h"
+#include "../include/rush3.h"
 
 Test (rush3, rush_1_1_rec_2_2, .init=cr_redirect_stdout)
 {
