@@ -36,6 +36,11 @@ static int check_last_line(char *buffer, rectangle *rec)
     return i + 1;
 }
 
+static int it_lines(int width, char body)
+{
+}
+
+
 static int check_vertical(char *buffer, int width, char body)
 {
     char *it = buffer;
@@ -94,9 +99,8 @@ static int square1(char *buffer)
     if (height < 0)
         return -1;
     buffer += (width + 1) * (height - 1);
-    my_putchar(*buffer);
-    //if (check_last_line(buffer, rec) < 0)
-    //  return -1;
+    if (check_last_line(buffer, rec) < 0)
+      return -1;
     my_putstr("[rush-1-1] ");
     put_dimensions(width, height);
 }
