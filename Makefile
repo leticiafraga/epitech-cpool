@@ -48,6 +48,6 @@ clean:
 	rm -f $(OBJ) *~ ./lib/my/*.o
 
 fclean:	clean
-	rm -f $(NAME) lib/my/$(LIBNAME)
+	rm -f $(NAME) lib/my/$(LIBNAME) *.gcda *.gcno
 
 re:     fclean all
