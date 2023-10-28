@@ -6,8 +6,13 @@
 ##
 
 SRC     =	main.c	\
+<<<<<<< Updated upstream
 		rectangle1.c \
 		rush3.c
+=======
+		rush3.c	\
+		check_line.c
+>>>>>>> Stashed changes
 
 TEST	=	tests/test.c \
 		tests/rush1_2_test.c
