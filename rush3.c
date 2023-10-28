@@ -6,15 +6,17 @@
 */
 
 #include "include/my.h"
+#include "include/struct.h"
 
-static int check_first_line(char *buffer, char hori_logo)
+static int check_first_line(char *buffer, char hori_logo, char r_corner)
 {
-    int i = 1;
-    char corner = buffer[0];
+    int i = 0;
 
+    if (buffer[i + 1] == hori_logo || buffer[i + 1] == r_corner)
+        i = 1;
     while (buffer[i] == hori_logo)
         i ++;
-    if (buffer[i] != corner || buffer[i + 1] != '\n')
+    if (buffer[i] != r_corner || buffer[i + 1] != '\n')
         return -1;
     return i + 1;
 }
@@ -49,7 +51,7 @@ static int square1(char *buffer)
     int width = 0;
     int height = 0;
 
-    width = check_first_line(buffer, '-');
+    width = check_first_line(buffer, '-', 'o');
     if (width < 0)
         return -1;
     height = check_vertical(buffer, width);
