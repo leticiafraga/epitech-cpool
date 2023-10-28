@@ -13,7 +13,7 @@ static void put_dim(int w, int h)
 {
     my_put_nbr(w);
     my_putchar(' ');
-    my_put_nbr(h);    
+    my_put_nbr(h);
 }
 
 static void put_msg(int w, int h)
